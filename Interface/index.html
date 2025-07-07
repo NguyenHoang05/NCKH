@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface</title>
+    <link rel="stylesheet" href="link.css">
+</head>
+
+<body>
+    <!-- Thanh điều hướng (Navigation Sidebar) -->
+    <div class="navigation">
+        <ul>
+            <!-- Các mục trong thanh điều hướng -->
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Proflie</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="analytics-outline"></ion-icon></span>
+                    <span class="title">Analysis</span>
+                </a>
+            </li>
+               <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="mainContent">
+        <!-- Khu vực nội dung chính -->
+        <!-- Phần giao diện Home: chuyển vai trò Sinh viên/Quản trị viên -->
+        <div id="homeSection" style="display:none">
+            <!-- Nút chuyển vai trò -->
+            <div class="role-switcher">
+                <button id="studentBtn" class="active"><span style="font-size:1.3em;">🎓</span> Sinh viên</button>
+                <button id="adminBtn"><span style="font-size:1.3em;">🛡️</span> Quản trị viên</button>
+            </div>
+            <!-- Giao diện Sinh viên -->
+            <div id="studentView" class="role-view">
+                <!-- Card thông tin sinh viên -->
+                <div class="student-info">
+                    <div style="display:flex;align-items:center;gap:16px;margin-bottom:10px;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" style="width:60px;height:60px;border-radius:50%;box-shadow:0 2px 8px #4d5bf933;object-fit:cover;">
+                        <div>
+                            <p><strong>Họ tên:</strong> Nguyễn Văn A</p>
+                            <p><strong>Mã sinh viên:</strong> 12345678</p>
+                            <p><strong>Lớp:</strong> KTPM2021</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bảng sách đã mượn -->
+                <h3 style="margin-bottom:10px;">Sách đã mượn</h3>
+                <table class="book-table">
+                    <thead>
+                        <tr>
+                            <th>Tên sách</th>
+                            <th>Ngày mượn</th>
+                            <th>Hạn trả</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lập trình C++ cơ bản</td>
+                            <td>01/05/2024</td>
+                            <td>15/05/2024</td>
+                            <td>Đang mượn</td>
+                        </tr>
+                        <tr>
+                            <td>Giải tích 1</td>
+                            <td>10/04/2024</td>
+                            <td>24/04/2024</td>
+                            <td>Đã trả</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- Giao diện Quản trị viên -->
+            <div id="adminView" class="role-view" style="display:none">
+                <!-- Card chức năng quản trị -->
+                <div class="admin-actions">
+                    <button><span style="font-size:1.1em;">➕</span> Thêm sách</button>
+                    <button><span style="font-size:1.1em;">🗑️</span> Xóa sách</button>
+                    <button><span style="font-size:1.1em;">✏️</span> Cập nhật sách</button>
+                </div>
+                <!-- Bảng danh sách sách -->
+                <h3 style="margin-bottom:10px;">Danh sách sách</h3>
+                <table class="book-table">
+                    <thead>
+                        <tr>
+                            <th>Tên sách</th>
+                            <th>Tác giả</th>
+                            <th>Năm xuất bản</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lập trình C++ cơ bản</td>
+                            <td>Nguyễn Văn B</td>
+                            <td>2020</td>
+                            <td>Còn</td>
+                        </tr>
+                        <tr>
+                            <td>Giải tích 1</td>
+                            <td>Trần Thị C</td>
+                            <td>2019</td>
+                            <td>Hết</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Phần thống kê sách (Analysis) -->
+        <div id="analysisSection" style="display:none">
+            <!-- Thống kê số lượng sách -->
+            <div class="stats-card" style="display:flex;gap:32px;margin-bottom:32px;">
+                <div class="stat-box">
+                    <div class="stat-title">Tổng số sách</div>
+                    <div class="stat-value">120</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-title">Sách còn</div>
+                    <div class="stat-value">80</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-title">Sách đã mượn</div>
+                    <div class="stat-value">40</div>
+                </div>
+            </div>
+            <!-- Biểu đồ cột trạng thái sách -->
+            <div class="chart-card" style="background:#f6f8ff;padding:24px 32px;border-radius:18px;box-shadow:0 2px 12px rgba(77,91,249,0.07);max-width:500px;">
+                <div class="stat-title" style="margin-bottom:16px;font-weight:600;">Biểu đồ trạng thái sách</div>
+                <div class="bar-chart" style="display:flex;align-items:flex-end;gap:32px;height:180px;">
+                    <div style="display:flex;flex-direction:column;align-items:center;">
+                        <div style="height:120px;width:40px;background:linear-gradient(180deg,#4d5bf9,#6a82fb);border-radius:8px 8px 0 0;"></div>
+                        <span style="margin-top:8px;font-size:0.98rem;">Còn</span>
+                    </div>
+                    <div style="display:flex;flex-direction:column;align-items:center;">
+                        <div style="height:60px;width:40px;background:linear-gradient(180deg,#f96d5b,#f9b46a);border-radius:8px 8px 0 0;"></div>
+                        <span style="margin-top:8px;font-size:0.98rem;">Đã mượn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    <script>
+        // Xử lý chuyển tab và hiển thị nội dung tương ứng
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function() {
+                let j = 0;
+                while(j <list.length) {
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+                // Hiển thị nội dung Home nếu click vào Home, ẩn nếu click mục khác
+                const homeSection = document.getElementById('homeSection');
+                const analysisSection = document.getElementById('analysisSection');
+                if (list[i].querySelector('.title').textContent.trim() === 'Home') {
+                    homeSection.style.display = '';
+                    analysisSection.style.display = 'none';
+                } else if (list[i].querySelector('.title').textContent.trim() === 'Analysis') {
+                    homeSection.style.display = 'none';
+                    analysisSection.style.display = '';
+                } else {
+                    homeSection.style.display = 'none';
+                    analysisSection.style.display = 'none';
+                }
+            }
+        }
+
+        // Switch between student and admin view
+        const studentBtn = document.getElementById('studentBtn');
+        const adminBtn = document.getElementById('adminBtn');
+        const studentView = document.getElementById('studentView');
+        const adminView = document.getElementById('adminView');
+
+        studentBtn.onclick = function() {
+            studentBtn.classList.add('active');
+            adminBtn.classList.remove('active');
+            studentView.style.display = '';
+            adminView.style.display = 'none';
+        };
+        adminBtn.onclick = function() {
+            adminBtn.classList.add('active');
+            studentBtn.classList.remove('active');
+            adminView.style.display = '';
+            studentView.style.display = 'none';
+        };
+
+        // Mặc định chỉ hiện Home khi vào trang
+        window.onload = function() {
+            document.querySelector('.list .title').click();
+        };
+    </script>
+</body>
+
+</html>

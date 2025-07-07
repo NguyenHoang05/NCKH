@@ -62,7 +62,7 @@ form{ width: 100%; }
 
 .input-box{
     position: relative;
-    margin: 30px 0;
+    margin: 20px 0;
 }
 
     .input-box input{
@@ -231,7 +231,7 @@ form{ width: 100%; }
 
             .container.active .toggle-panel.toggle-right{ bottom: 0; }
 }
-
+ư
 @media screen and (max-width: 400px){
     .form-box { padding: 20px; }
 

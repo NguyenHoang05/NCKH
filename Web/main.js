@@ -9,3 +9,13 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove('active');
 })
+       // Lấy form đăng nhập
+const loginForm = document.querySelector('.form-box.login form');
+
+if (loginForm) {
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Ngăn reload trang
+        // Nếu đăng nhập thành công, chuyển hướng:
+        window.location.href = '/index.html'; 
+    });
+}
