@@ -20,10 +20,10 @@ body
     width: 200px;
     border-radius: 10px;
     box-sizing: initial;
-    border-left: -5px solid #4d5bf9;
-    background: #4d5bf9;
+    border-left: -5px solid #B20000;
+    background: #B20000;
     transition: 0.5s;
-    box-shadow: 0 4px 16px rgba(77,91,249,0.10);
+    box-shadow: 0 4px 16px rgba(178,0,0,0.15);
 }
 .navigation ul
 {
@@ -104,11 +104,11 @@ body
     outline: none;
     padding: 12px 32px;
     border-radius: 30px;
-    background: linear-gradient(90deg, #4d5bf9 60%, #6a82fb 100%);
+    background: linear-gradient(90deg, #B20000 60%, #D32F2F 100%);
     color: #fff;
     font-size: 1.1rem;
     font-weight: 600;
-    box-shadow: 0 4px 16px rgba(77,91,249,0.15);
+    box-shadow: 0 4px 16px rgba(178,0,0,0.15);
     cursor: pointer;
     transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
     display: flex;
@@ -116,17 +116,17 @@ body
     gap: 8px;
 }
 .role-switcher button.active, .role-switcher button:hover {
-    background: linear-gradient(90deg, #6a82fb 60%, #4d5bf9 100%);
+    background: linear-gradient(90deg, #D32F2F 60%, #B20000 100%);
     color: #fff;
     transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 8px 24px rgba(77,91,249,0.18);
+    box-shadow: 0 8px 24px rgba(178,0,0,0.18);
 }
 
 /* Card thông tin */
 .student-info, .admin-actions {
-    background: #f6f8ff;
+    background: #fff5f5;
     border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(77,91,249,0.07);
+    box-shadow: 0 2px 12px rgba(178,0,0,0.07);
     padding: 24px 32px;
     margin-bottom: 24px;
     display: flex;
@@ -145,19 +145,19 @@ body
     justify-content: flex-start;
 }
 .admin-actions button {
-    background: linear-gradient(90deg, #4d5bf9 60%, #6a82fb 100%);
+    background: linear-gradient(90deg, #B20000 60%, #D32F2F 100%);
     color: #fff;
     border: none;
     border-radius: 20px;
     padding: 10px 22px;
     font-weight: 500;
     font-size: 1rem;
-    box-shadow: 0 2px 8px rgba(77,91,249,0.10);
+    box-shadow: 0 2px 8px rgba(178,0,0,0.10);
     cursor: pointer;
     transition: background 0.3s, transform 0.2s;
 }
 .admin-actions button:hover {
-    background: linear-gradient(90deg, #6a82fb 60%, #4d5bf9 100%);
+    background: linear-gradient(90deg, #D32F2F 60%, #B20000 100%);
     transform: scale(1.05);
 }
 
@@ -168,7 +168,7 @@ body
     border-spacing: 0;
     background: #fff;
     border-radius: 16px;
-    box-shadow: 0 2px 12px rgba(77,91,249,0.07);
+    box-shadow: 0 2px 12px rgba(178,0,0,0.07);
     overflow: hidden;
     margin-bottom: 32px;
 }
@@ -177,7 +177,7 @@ body
     text-align: left;
 }
 .book-table thead th {
-    background: linear-gradient(90deg, #4d5bf9 60%, #6a82fb 100%);
+    background: linear-gradient(90deg, #B20000 60%, #D32F2F 100%);
     color: #fff;
     font-weight: 700;
     font-size: 1.05rem;
@@ -187,7 +187,7 @@ body
     transition: background 0.2s;
 }
 .book-table tbody tr:hover {
-    background: #f0f4ff;
+    background: #fff5f5;
 }
 .book-table tbody td {
     font-size: 1rem;

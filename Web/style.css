@@ -89,6 +89,32 @@ form{ width: 100%; }
         transform: translateY(-50%);
         font-size: 20px;
     }
+    
+    .input-box select{
+        width: 100%;
+        padding: 13px 50px 13px 20px;
+        background: #eee;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    
+    .input-box select:focus{
+        background: #f0f0f0;
+    }
+    
+    .input-box select option{
+        background: #fff;
+        color: #333;
+        padding: 10px;
+    }
 
 .forgot-link{ margin: -15px 0 15px; }
     .forgot-link a{

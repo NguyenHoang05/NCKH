@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Login - Thông tin đăng nhập</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(90deg, #e2e2e2, #c9d6ff);
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .role-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid;
+        }
+        .student {
+            background: rgba(102, 126, 234, 0.1);
+            border-left-color: #667eea;
+        }
+        .admin {
+            background: rgba(178, 0, 0, 0.1);
+            border-left-color: #B20000;
+        }
+        .role-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .student .role-title {
+            color: #667eea;
+        }
+        .admin .role-title {
+            color: #B20000;
+        }
+        .credentials {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .credential {
+            background: rgba(255,255,255,0.8);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #eee;
+        }
+        .credential strong {
+            color: #333;
+        }
+        .credential p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .note {
+            background: rgba(255, 152, 0, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.3);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .note h3 {
+            color: #FF9800;
+            margin-top: 0;
+        }
+        .back-btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .back-btn:hover {
+            background: #5a6fd8;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 Thông tin đăng nhập demo</h1>
+        
+        <div class="role-section student">
+            <div class="role-title">👨‍🎓 Sinh viên</div>
+            <p>Chuyển đến: <strong>Interface/Student/index.html</strong></p>
+            <div class="credentials">
+                <div class="credential">
+                    <strong>Tài khoản 1:</strong>
+                    <p>Username: <strong>student1</strong></p>
+                    <p>Password: <strong>123456</strong></p>
+                </div>
+                <div class="credential">
+                    <strong>Tài khoản 2:</strong>
+                    <p>Username: <strong>2021001</strong></p>
+                    <p>Password: <strong>student123</strong></p>
+                </div>
+                <div class="credential">
+                    <strong>Tài khoản 3:</strong>
+                    <p>Username: <strong>nguyenvana</strong></p>
+                    <p>Password: <strong>123456</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="role-section admin">
+            <div class="role-title">👨‍💼 Admin</div>
+            <p>Chuyển đến: <strong>Interface/Admin/index.html</strong></p>
+            <div class="credentials">
+                <div class="credential">
+                    <strong>Tài khoản 1:</strong>
+                    <p>Username: <strong>admin</strong></p>
+                    <p>Password: <strong>admin123</strong></p>
+                </div>
+                <div class="credential">
+                    <strong>Tài khoản 2:</strong>
+                    <p>Username: <strong>admin@piit.edu.vn</strong></p>
+                    <p>Password: <strong>admin123</strong></p>
+                </div>
+                <div class="credential">
+                    <strong>Tài khoản 3:</strong>
+                    <p>Username: <strong>librarian</strong></p>
+                    <p>Password: <strong>lib123</strong></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <h3>📝 Hướng dẫn sử dụng:</h3>
+            <ol>
+                <li>Mở file <strong>Web/index.html</strong> để vào trang đăng nhập</li>
+                <li>Nhập thông tin đăng nhập từ bảng trên</li>
+                <li>Chọn vai trò tương ứng (Sinh viên hoặc Admin)</li>
+                <li>Nhấn "Đăng nhập" để chuyển đến trang tương ứng</li>
+            </ol>
+        </div>
+        
+        <a href="index.html" class="back-btn">← Quay lại trang đăng nhập</a>
+    </div>
+</body>
+</html> 

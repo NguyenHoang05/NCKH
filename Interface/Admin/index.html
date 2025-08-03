@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Thanh điều hướng (Navigation Sidebar) -->
+    <div class="navigation">
+        <ul>
+            <!-- Các mục trong thanh điều hướng -->
+                        <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" onclick="showSection('listSection')">
+                    <span class="icon"><ion-icon name="list-outline"></ion-icon></span>
+                    <span class="title">List</span>
+                </a>
+            </li>
+ 
+            <li class="list">
+                <a href="#" onclick="showSection('analysisSection')">
+                    <span class="icon"><ion-icon name="analytics-outline"></ion-icon></span>
+                    <span class="title">Analysis</span>
+                </a>
+            </li>
+               <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#" onclick="showSection('passwordSection')">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#" onclick="showSection('signoutSection')">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="mainContent">
+        <!-- Khu vực nội dung chính -->
+        <!-- Phần giao diện Home: Dashboard quản lý -->
+        <div id="homeSection" style="display:none">
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">QUẢN LÝ THƯ VIỆN PIIT</h2>
+            </div>
+            
+            <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
+                <!-- Mượn Sách -->
+                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:280px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onclick="showBorrowForm()" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(178,0,0,0.2)';this.style.border='2px solid rgba(178,0,0,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 8px 24px rgba(178,0,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="book-outline" style="font-size:1.8rem;color:white;"></ion-icon>
+                    </div>
+                    <h3 style="font-size:1.3rem;font-weight:600;color:#1a1a1a;margin-bottom:8px;position:relative;z-index:1;">Mượn Sách</h3>
+                    <p style="color:#666;font-size:0.95rem;text-align:center;position:relative;z-index:1;">Quản lý việc mượn sách của sinh viên</p>
+                </div>
+                
+                <!-- Trả Sách -->
+                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:280px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onclick="showReturnBookForm()" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(178,0,0,0.2)';this.style.border='2px solid rgba(178,0,0,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 8px 24px rgba(178,0,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="return-down-back-outline" style="font-size:1.8rem;color:white;"></ion-icon>
+                    </div>
+                    <h3 style="font-size:1.3rem;font-weight:600;color:#1a1a1a;margin-bottom:8px;position:relative;z-index:1;">Trả Sách</h3>
+                    <p style="color:#666;font-size:0.95rem;text-align:center;position:relative;z-index:1;">Xử lý việc trả sách của sinh viên</p>
+                </div>
+                
+                <!-- Thêm Sách -->
+                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:280px;min-height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onclick="showAddBookForm()" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(178,0,0,0.2)';this.style.border='2px solid rgba(178,0,0,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 8px 24px rgba(178,0,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="add-circle-outline" style="font-size:1.8rem;color:white;"></ion-icon>
+                    </div>
+                    <h3 style="font-size:1.3rem;font-weight:600;color:#1a1a1a;margin-bottom:8px;position:relative;z-index:1;">Thêm Sách</h3>
+                    <p style="color:#666;font-size:0.95rem;text-align:center;position:relative;z-index:1;">Thêm sách mới vào thư viện</p>
+                </div>
+            </div>
+            
+            <!-- Thống kê nhanh -->
+            <div style="margin-top:50px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+                <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:16px;padding:24px;min-width:200px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size:2rem;font-weight:700;color:#B20000;margin-bottom:8px;">1,250</div>
+                    <div style="color:#666;font-size:0.95rem;">Tổng số sách</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:16px;padding:24px;min-width:200px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size:2rem;font-weight:700;color:#B20000;margin-bottom:8px;">89</div>
+                    <div style="color:#666;font-size:0.95rem;">Sách đang mượn</div>
+                </div>
+                <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:16px;padding:24px;min-width:200px;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size:2rem;font-weight:700;color:#B20000;margin-bottom:8px;">156</div>
+                    <div style="color:#666;font-size:0.95rem;">Sinh viên đăng ký</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phần danh sách (List) -->
+        <div id="listSection" style="display:none">
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">DANH SÁCH</h2>
+            </div>
+            
+            <!-- Bảng danh sách -->
+            <div style="background:white;border-radius:16px;padding:25px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;border:1px solid #ddd;background:white;">
+                    <thead>
+                        <tr style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;">
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">MSSV</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Gmail</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên Sách</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Ngày Mượn</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Ngày Trả</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Trạng Thái</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Nguyễn Văn A</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021001</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">nguyenvana@gmail.com</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lập trình C++ cơ bản</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK001</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">01/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">15/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đang mượn</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Trần Thị B</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021002</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">tranthib@gmail.com</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Giải tích 1</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK002</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">05/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">19/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đang mượn</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lê Văn C</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021003</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">levanc@gmail.com</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Tôi thấy hoa vàng trên cỏ xanh</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK003</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">10/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">24/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#4caf50;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đã trả</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Phạm Thị D</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021004</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">phamthid@gmail.com</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Văn học Việt Nam</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK004</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">12/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">26/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đang mượn</span></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Hoàng Văn E</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021005</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">hoangvane@gmail.com</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lịch sử Đảng Cộng sản Việt Nam</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK005</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">15/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">29/12/2024</td>
+                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#4caf50;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đã trả</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Phần thống kê sách (Analysis) -->
+        <div id="analysisSection" style="display:none">
+            <!-- Tiêu đề -->
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">PHÂN TÍCH THỐNG KÊ</h2>
+            </div>
+            
+            <!-- Thống kê số lượng sách - Cards hiện đại -->
+            <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-bottom:50px;">
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:200px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-10px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(178,0,0,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 24px rgba(178,0,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="library-outline" style="font-size:1.8rem;color:white;"></ion-icon>
+                    </div>
+                    <div style="font-size:2.5rem;font-weight:700;color:#B20000;margin-bottom:8px;position:relative;z-index:1;">1,250</div>
+                    <div style="color:#666;font-size:1rem;font-weight:500;position:relative;z-index:1;">Tổng số sách</div>
+                </div>
+                
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:200px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-10px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(76,175,80,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(76,175,80,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#4CAF50,#66BB6A);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 24px rgba(76,175,80,0.3);position:relative;z-index:1;">
+                        <ion-icon name="checkmark-circle-outline" style="font-size:1.8rem;color:white;"></ion-icon>
+                    </div>
+                    <div style="font-size:2.5rem;font-weight:700;color:#4CAF50;margin-bottom:8px;position:relative;z-index:1;">1,161</div>
+                    <div style="color:#666;font-size:1rem;font-weight:500;position:relative;z-index:1;">Sách còn</div>
+                </div>
+                
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:200px;text-align:center;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-10px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(255,152,0,0.2)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(255,152,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#FF9800,#FFB74D);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 24px rgba(255,152,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="book-outline" style="font-size:1.8rem;color:white;"></ion-icon>
+                    </div>
+                    <div style="font-size:2.5rem;font-weight:700;color:#FF9800;margin-bottom:8px;position:relative;z-index:1;">89</div>
+                    <div style="color:#666;font-size:1rem;font-weight:500;position:relative;z-index:1;">Sách đang mượn</div>
+                </div>
+            </div>
+            
+            <!-- Biểu đồ và thống kê chi tiết -->
+            <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+                <!-- Biểu đồ cột hiện đại -->
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:400px;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <h3 style="color:#1a1a1a;font-size:1.3rem;font-weight:600;margin-bottom:20px;text-align:center;">Biểu đồ trạng thái sách</h3>
+                    <div style="display:flex;align-items:flex-end;gap:40px;height:200px;justify-content:center;">
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="height:160px;width:50px;background:linear-gradient(180deg,#4CAF50,#66BB6A);border-radius:10px 10px 0 0;box-shadow:0 4px 15px rgba(76,175,80,0.3);position:relative;">
+                                <div style="position:absolute;top:-25px;left:50%;transform:translateX(-50%);background:white;padding:4px 8px;border-radius:6px;font-size:0.8rem;font-weight:600;color:#4CAF50;box-shadow:0 2px 8px rgba(0,0,0,0.1);">1,161</div>
+                            </div>
+                            <span style="margin-top:12px;font-size:1rem;font-weight:500;color:#666;">Sách còn</span>
+                        </div>
+                        <div style="display:flex;flex-direction:column;align-items:center;">
+                            <div style="height:80px;width:50px;background:linear-gradient(180deg,#FF9800,#FFB74D);border-radius:10px 10px 0 0;box-shadow:0 4px 15px rgba(255,152,0,0.3);position:relative;">
+                                <div style="position:absolute;top:-25px;left:50%;transform:translateX(-50%);background:white;padding:4px 8px;border-radius:6px;font-size:0.8rem;font-weight:600;color:#FF9800;box-shadow:0 2px 8px rgba(0,0,0,0.1);">89</div>
+                            </div>
+                            <span style="margin-top:12px;font-size:1rem;font-weight:500;color:#666;">Đang mượn</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Thống kê chi tiết -->
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <h3 style="color:#1a1a1a;font-size:1.3rem;font-weight:600;margin-bottom:20px;text-align:center;">Thống kê chi tiết</h3>
+                    <div style="display:flex;flex-direction:column;gap:15px;">
+                        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:rgba(76,175,80,0.1);border-radius:10px;border-left:4px solid #4CAF50;">
+                            <span style="font-weight:500;color:#333;">Tỷ lệ sách còn</span>
+                            <span style="font-weight:700;color:#4CAF50;font-size:1.1rem;">92.9%</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:rgba(255,152,0,0.1);border-radius:10px;border-left:4px solid #FF9800;">
+                            <span style="font-weight:500;color:#333;">Tỷ lệ sách mượn</span>
+                            <span style="font-weight:700;color:#FF9800;font-size:1.1rem;">7.1%</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:rgba(178,0,0,0.1);border-radius:10px;border-left:4px solid #B20000;">
+                            <span style="font-weight:500;color:#333;">Sinh viên đăng ký</span>
+                            <span style="font-weight:700;color:#B20000;font-size:1.1rem;">156</span>
+                        </div>
+                        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px;background:rgba(33,150,243,0.1);border-radius:10px;border-left:4px solid #2196F3;">
+                            <span style="font-weight:500;color:#333;">Lượt mượn tháng này</span>
+                            <span style="font-weight:700;color:#2196F3;font-size:1.1rem;">234</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    <!-- Modal Form Mượn Sách -->
+        <div id="borrowModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);z-index:1000;align-items:center;justify-content:center;">
+            <div style="background:white;border-radius:16px;padding:25px;min-width:350px;max-width:400px;box-shadow:0 20px 50px rgba(0,0,0,0.3);position:relative;animation:slideInUp 0.3s ease;">
+                <!-- Nút đóng -->
+                <button onclick="closeBorrowForm()" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#666;transition:color 0.3s;" onmouseover="this.style.color='#B20000'">×</button>
+                
+                <!-- Tiêu đề -->
+                <div style="text-align:center;margin-bottom:20px;">
+                    <h2 style="color:#1a1a1a;font-size:1.4rem;font-weight:600;margin-bottom:6px;">Mượn Sách</h2>
+                    <div style="width:40px;height:2px;background:linear-gradient(135deg,#B20000,#D32F2F);margin:0 auto;border-radius:2px;"></div>
+                </div>
+                
+                <!-- Form -->
+                <form id="borrowForm" onsubmit="submitBorrowForm(event)">
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Tên:</label>
+                        <input type="text" id="studentName" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập tên sinh viên">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">MSSV:</label>
+                        <input type="text" id="studentId" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập mã số sinh viên">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">ID Sách:</label>
+                        <input type="text" id="bookId" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập ID sách">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Ngày Mượn:</label>
+                        <input type="date" id="borrowDate" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'">
+                    </div>
+                    
+                    <div style="margin-bottom:20px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Ngày Trả:</label>
+                        <input type="date" id="returnDate" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'">
+                    </div>
+                    
+                    <!-- Nút Submit -->
+                    <div style="text-align:right;">
+                        <button type="submit" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:8px 20px;border-radius:8px;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 10px rgba(178,0,0,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 5px 15px rgba(178,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 3px 10px rgba(178,0,0,0.3)'">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Modal Form Thêm Sách -->
+        <div id="addBookModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);z-index:1000;align-items:center;justify-content:center;">
+            <div style="background:white;border-radius:16px;padding:25px;min-width:350px;max-width:400px;box-shadow:0 20px 50px rgba(0,0,0,0.3);position:relative;animation:slideInUp 0.3s ease;">
+                <!-- Nút đóng -->
+                <button onclick="closeAddBookForm()" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#666;transition:color 0.3s;" onmouseover="this.style.color='#B20000'">×</button>
+                
+                <!-- Tiêu đề -->
+                <div style="text-align:center;margin-bottom:20px;">
+                    <h2 style="color:#1a1a1a;font-size:1.4rem;font-weight:600;margin-bottom:6px;">Thêm Sách</h2>
+                    <div style="width:40px;height:2px;background:linear-gradient(135deg,#B20000,#D32F2F);margin:0 auto;border-radius:2px;"></div>
+                </div>
+                
+                <!-- Form -->
+                <form id="addBookForm" onsubmit="submitAddBookForm(event)">
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Tên:</label>
+                        <input type="text" id="bookName" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập tên sách">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">ID Sách:</label>
+                        <input type="text" id="bookIdAdd" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập ID sách">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Tác Giả:</label>
+                        <input type="text" id="bookAuthor" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập tên tác giả">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Thể Loại:</label>
+                        <input type="text" id="bookGenre" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập thể loại sách">
+                    </div>
+                    
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Vị Trí Tủ:</label>
+                        <input type="text" id="bookShelf" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập vị trí tủ sách">
+                    </div>
+                    
+                    <div style="margin-bottom:20px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Thuộc Dạng Văn Học:</label>
+                        <select id="bookType" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;background:white;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'">
+                            <option value="">Chọn loại văn học</option>
+                            <option value="Tiểu thuyết">Tiểu thuyết</option>
+                            <option value="Truyện ngắn">Truyện ngắn</option>
+                            <option value="Thơ">Thơ</option>
+                            <option value="Kịch">Kịch</option>
+                            <option value="Truyện cổ tích">Truyện cổ tích</option>
+                            <option value="Truyện dân gian">Truyện dân gian</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Nút Submit -->
+                    <div style="text-align:right;">
+                        <button type="submit" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:8px 20px;border-radius:8px;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 10px rgba(178,0,0,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 5px 15px rgba(178,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 3px 10px rgba(178,0,0,0.3)'">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Phần thay đổi mật khẩu (Password) -->
+        <div id="passwordSection" style="display:none">
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:30px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">THAY ĐỔI MẬT KHẨU</h2>
+            </div>
+            
+            <!-- Form thay đổi mật khẩu -->
+            <div style="display:flex;justify-content:center;align-items:center;min-height:50vh;">
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:16px;padding:30px;min-width:350px;max-width:400px;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <!-- Shimmer effect -->
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    
+                    <!-- Icon bảo mật -->
+                    <div style="text-align:center;margin-bottom:20px;position:relative;z-index:1;">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;box-shadow:0 8px 24px rgba(178,0,0,0.3);">
+                            <ion-icon name="shield-checkmark-outline" style="font-size:2rem;color:white;"></ion-icon>
+                        </div>
+                        <h3 style="color:#1a1a1a;font-size:1.2rem;font-weight:600;margin-bottom:5px;">Bảo mật tài khoản</h3>
+                        <p style="color:#666;font-size:0.9rem;">Vui lòng nhập thông tin để thay đổi mật khẩu</p>
+                    </div>
+                    
+                    <!-- Form -->
+                    <form id="changePasswordForm" onsubmit="submitChangePassword(event)" style="position:relative;z-index:1;">
+                        <div style="margin-bottom:15px;">
+                            <label style="display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:0.9rem;">Mật khẩu hiện tại:</label>
+                            <div style="position:relative;">
+                                <input type="password" id="currentPassword" required style="width:100%;padding:10px 14px;border:2px solid #e1e5e9;border-radius:10px;font-size:0.95rem;transition:all 0.3s;box-sizing:border-box;background:rgba(255,255,255,0.9);" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập mật khẩu hiện tại">
+                                <button type="button" onclick="togglePasswordVisibility('currentPassword')" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#666;font-size:1rem;" onmouseover="this.style.color='#B20000'">
+                                    <ion-icon name="eye-outline" id="currentPasswordIcon"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom:15px;">
+                            <label style="display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:0.9rem;">Mật khẩu mới:</label>
+                            <div style="position:relative;">
+                                <input type="password" id="newPassword" required style="width:100%;padding:10px 14px;border:2px solid #e1e5e9;border-radius:10px;font-size:0.95rem;transition:all 0.3s;box-sizing:border-box;background:rgba(255,255,255,0.9);" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập mật khẩu mới">
+                                <button type="button" onclick="togglePasswordVisibility('newPassword')" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#666;font-size:1rem;" onmouseover="this.style.color='#B20000'">
+                                    <ion-icon name="eye-outline" id="newPasswordIcon"></ion-icon>
+                                </button>
+                            </div>
+                            <div style="margin-top:6px;font-size:0.8rem;color:#666;">
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <ion-icon name="checkmark-circle-outline" style="color:#4CAF50;font-size:0.9rem;"></ion-icon>
+                                    <span>Ít nhất 8 ký tự</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:4px;margin-bottom:2px;">
+                                    <ion-icon name="checkmark-circle-outline" style="color:#4CAF50;font-size:0.9rem;"></ion-icon>
+                                    <span>Chứa chữ hoa và chữ thường</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:4px;">
+                                    <ion-icon name="checkmark-circle-outline" style="color:#4CAF50;font-size:0.9rem;"></ion-icon>
+                                    <span>Chứa số và ký tự đặc biệt</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom:25px;">
+                            <label style="display:block;margin-bottom:6px;color:#333;font-weight:500;font-size:0.9rem;">Xác nhận mật khẩu mới:</label>
+                            <div style="position:relative;">
+                                <input type="password" id="confirmPassword" required style="width:100%;padding:10px 14px;border:2px solid #e1e5e9;border-radius:10px;font-size:0.95rem;transition:all 0.3s;box-sizing:border-box;background:rgba(255,255,255,0.9);" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập lại mật khẩu mới">
+                                <button type="button" onclick="togglePasswordVisibility('confirmPassword')" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:#666;font-size:1rem;" onmouseover="this.style.color='#B20000'">
+                                    <ion-icon name="eye-outline" id="confirmPasswordIcon"></ion-icon>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Nút Submit -->
+                        <div style="text-align:center;">
+                            <button type="submit" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:12px 24px;border-radius:10px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(178,0,0,0.3);width:100%;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(178,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(178,0,0,0.3)'">
+                                <ion-icon name="checkmark-circle-outline" style="margin-right:8px;font-size:1rem;"></ion-icon>
+                                Thay đổi mật khẩu
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phần đăng xuất (Sign out) -->
+        <div id="signoutSection" style="display:none">
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:30px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">ĐĂNG XUẤT</h2>
+            </div>
+            
+            <!-- Giao diện đăng xuất -->
+            <div style="display:flex;justify-content:center;align-items:center;min-height:50vh;">
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:16px;padding:30px;min-width:350px;max-width:400px;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;text-align:center;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <!-- Shimmer effect -->
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    
+                    <!-- Icon đăng xuất -->
+                    <div style="width:70px;height:70px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(178,0,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="log-out-outline" style="font-size:2.2rem;color:white;"></ion-icon>
+                    </div>
+                    
+                    <!-- Thông tin admin -->
+                    <div style="margin-bottom:20px;position:relative;z-index:1;">
+                        <h3 style="color:#1a1a1a;font-size:1.3rem;font-weight:600;margin-bottom:8px;">Admin Dashboard</h3>
+                        <p style="color:#666;font-size:0.9rem;margin-bottom:6px;">Tài khoản: <span style="color:#B20000;font-weight:600;">admin@piit.edu.vn</span></p>
+                        <p style="color:#666;font-size:0.9rem;">Vai trò: <span style="color:#B20000;font-weight:600;">Quản trị viên thư viện</span></p>
+                    </div>
+                    
+                    <!-- Thông báo -->
+                    <div style="background:rgba(255,152,0,0.1);border:2px solid rgba(255,152,0,0.3);border-radius:10px;padding:15px;margin-bottom:20px;position:relative;z-index:1;">
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                            <ion-icon name="warning-outline" style="color:#FF9800;font-size:1.2rem;"></ion-icon>
+                            <span style="color:#FF9800;font-weight:600;font-size:1rem;">Lưu ý quan trọng</span>
+                        </div>
+                        <p style="color:#666;font-size:0.85rem;line-height:1.4;margin:0;">
+                            Bạn sắp đăng xuất khỏi hệ thống. Tất cả các thay đổi chưa lưu sẽ bị mất. 
+                            Hãy đảm bảo đã lưu tất cả công việc trước khi đăng xuất.
+                        </p>
+                    </div>
+                    
+                    <!-- Thống kê phiên làm việc -->
+                    <div style="background:rgba(76,175,80,0.1);border:2px solid rgba(76,175,80,0.3);border-radius:10px;padding:15px;margin-bottom:20px;position:relative;z-index:1;">
+                        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                            <ion-icon name="time-outline" style="color:#4CAF50;font-size:1.2rem;"></ion-icon>
+                            <span style="color:#4CAF50;font-weight:600;font-size:1rem;">Phiên làm việc</span>
+                        </div>
+                        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;">
+                            <div>
+                                <span style="color:#666;font-size:0.8rem;">Thời gian đăng nhập:</span>
+                                <div style="color:#333;font-weight:600;font-size:0.85rem;">08:30 - 15/12/2024</div>
+                            </div>
+                            <div>
+                                <span style="color:#666;font-size:0.8rem;">Thời gian hiện tại:</span>
+                                <div style="color:#333;font-weight:600;font-size:0.85rem;" id="currentTime">--:-- - --/--/----</div>
+                            </div>
+                            <div>
+                                <span style="color:#666;font-size:0.8rem;">Thao tác thực hiện:</span>
+                                <div style="color:#333;font-weight:600;font-size:0.85rem;">15 thao tác</div>
+                            </div>
+                            <div>
+                                <span style="color:#666;font-size:0.8rem;">Sách đã xử lý:</span>
+                                <div style="color:#333;font-weight:600;font-size:0.85rem;">23 cuốn</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Nút đăng xuất -->
+                    <div style="display:flex;gap:12px;justify-content:center;position:relative;z-index:1;">
+                        <button onclick="cancelSignout()" style="background:rgba(255,255,255,0.9);color:#666;border:2px solid #e1e5e9;padding:12px 20px;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 2px 8px rgba(0,0,0,0.1);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)'">
+                            <ion-icon name="arrow-back-outline" style="margin-right:6px;font-size:1rem;"></ion-icon>
+                            Hủy bỏ
+                        </button>
+                        <button onclick="confirmSignout()" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:12px 20px;border-radius:10px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(178,0,0,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(178,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 15px rgba(178,0,0,0.3)'">
+                            <ion-icon name="log-out-outline" style="margin-right:6px;font-size:1rem;"></ion-icon>
+                            Đăng xuất
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal Form Trả Sách -->
+        <div id="returnBookModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);backdrop-filter:blur(5px);z-index:1000;align-items:center;justify-content:center;">
+            <div style="background:white;border-radius:16px;padding:25px;min-width:90%;max-width:95%;max-height:90%;box-shadow:0 20px 50px rgba(0,0,0,0.3);position:relative;animation:slideInUp 0.3s ease;overflow-y:auto;">
+                <!-- Nút đóng -->
+                <button onclick="closeReturnBookForm()" style="position:absolute;top:10px;right:15px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#666;transition:color 0.3s;" onmouseover="this.style.color='#B20000'">×</button>
+                
+                <!-- Tiêu đề -->
+                <div style="text-align:center;margin-bottom:20px;">
+                    <h2 style="color:#1a1a1a;font-size:1.4rem;font-weight:600;margin-bottom:6px;">Trả Sách</h2>
+                    <div style="width:40px;height:2px;background:linear-gradient(135deg,#B20000,#D32F2F);margin:0 auto;border-radius:2px;"></div>
+                </div>
+                
+                <!-- Bảng danh sách -->
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:collapse;border:1px solid #ddd;background:white;">
+                        <thead>
+                            <tr style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;">
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">MSSV</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Gmail</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên Sách</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Ngày Mượn</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Ngày Trả</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Trạng Thái</th>
+                                <th style="padding:12px 8px;text-align:center;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Nguyễn Văn A</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021001</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">nguyenvana@gmail.com</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lập trình C++ cơ bản</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK001</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">01/12/2024</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">15/12/2024</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đang mượn</span></td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;text-align:center;">
+                                    <button onclick="returnBook('BK001', 'Nguyễn Văn A')" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:6px 12px;border-radius:6px;font-size:0.8rem;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Trả sách</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Trần Thị B</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021002</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">tranthib@gmail.com</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Giải tích 1</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK002</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">05/12/2024</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">19/12/2024</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đang mượn</span></td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;text-align:center;">
+                                    <button onclick="returnBook('BK002', 'Trần Thị B')" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:6px 12px;border-radius:6px;font-size:0.8rem;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Trả sách</button>
+                                </td>
+                            </tr>
+                            <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lê Văn C</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021003</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">levanc@gmail.com</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Tôi thấy hoa vàng trên cỏ xanh</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK003</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">10/12/2024</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">24/12/2024</td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Đang mượn</span></td>
+                                <td style="padding:10px 8px;border:1px solid #ddd;text-align:center;">
+                                    <button onclick="returnBook('BK003', 'Lê Văn C')" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:6px 12px;border-radius:6px;font-size:0.8rem;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">Trả sách</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    <script>
+        // Xử lý chuyển tab và hiển thị nội dung tương ứng
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function() {
+                let j = 0;
+                while(j <list.length) {
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+                // Hiển thị nội dung Home nếu click vào Home, ẩn nếu click mục khác
+                const homeSection = document.getElementById('homeSection');
+                const analysisSection = document.getElementById('analysisSection');
+                if (list[i].querySelector('.title').textContent.trim() === 'Home') {
+                    homeSection.style.display = '';
+                    analysisSection.style.display = 'none';
+                } else if (list[i].querySelector('.title').textContent.trim() === 'Analysis') {
+                    homeSection.style.display = 'none';
+                    analysisSection.style.display = '';
+                } else {
+                    homeSection.style.display = 'none';
+                    analysisSection.style.display = 'none';
+                }
+            }
+        }
+
+        // Switch between student and admin view
+        const studentBtn = document.getElementById('studentBtn');
+        const adminBtn = document.getElementById('adminBtn');
+        const studentView = document.getElementById('studentView');
+        const adminView = document.getElementById('adminView');
+
+        studentBtn.onclick = function() {
+            studentBtn.classList.add('active');
+            adminBtn.classList.remove('active');
+            studentView.style.display = '';
+            adminView.style.display = 'none';
+        };
+        adminBtn.onclick = function() {
+            adminBtn.classList.add('active');
+            studentBtn.classList.remove('active');
+            adminView.style.display = '';
+            studentView.style.display = 'none';
+        };
+
+        // Mặc định chỉ hiện Home khi vào trang
+        window.onload = function() {
+            document.querySelector('.list .title').click();
+        };
+
+        // Hàm hiển thị form mượn sách
+        function showBorrowForm() {
+            const modal = document.getElementById('borrowModal');
+            modal.style.display = 'flex';
+            
+            // Tự động đặt ngày mượn là hôm nay
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('borrowDate').value = today;
+            
+            // Tự động đặt ngày trả là 14 ngày sau
+            const returnDate = new Date();
+            returnDate.setDate(returnDate.getDate() + 14);
+            document.getElementById('returnDate').value = returnDate.toISOString().split('T')[0];
+        }
+        
+        // Hàm đóng form mượn sách
+        function closeBorrowForm() {
+            document.getElementById('borrowModal').style.display = 'none';
+            document.getElementById('borrowForm').reset();
+        }
+        
+        // Hàm xử lý submit form
+        function submitBorrowForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                studentName: document.getElementById('studentName').value,
+                studentId: document.getElementById('studentId').value,
+                bookId: document.getElementById('bookId').value,
+                borrowDate: document.getElementById('borrowDate').value,
+                returnDate: document.getElementById('returnDate').value
+            };
+            
+            // Hiển thị thông báo thành công
+            alert('Đã mượn sách thành công!\n\nThông tin mượn sách:\n- Tên: ' + formData.studentName + '\n- MSSV: ' + formData.studentId + '\n- ID Sách: ' + formData.bookId + '\n- Ngày mượn: ' + formData.borrowDate + '\n- Ngày trả: ' + formData.returnDate);
+            
+            // Đóng form
+            closeBorrowForm();
+        }
+        
+        // Đóng modal khi click bên ngoài
+        document.getElementById('borrowModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBorrowForm();
+            }
+        });
+        
+        // Hàm hiển thị form thêm sách
+        function showAddBookForm() {
+            const modal = document.getElementById('addBookModal');
+            modal.style.display = 'flex';
+        }
+        
+        // Hàm đóng form thêm sách
+        function closeAddBookForm() {
+            document.getElementById('addBookModal').style.display = 'none';
+            document.getElementById('addBookForm').reset();
+        }
+        
+        // Hàm xử lý submit form thêm sách
+        function submitAddBookForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                bookName: document.getElementById('bookName').value,
+                bookId: document.getElementById('bookIdAdd').value,
+                bookAuthor: document.getElementById('bookAuthor').value,
+                bookGenre: document.getElementById('bookGenre').value,
+                bookShelf: document.getElementById('bookShelf').value,
+                bookType: document.getElementById('bookType').value
+            };
+            
+            // Hiển thị thông báo thành công
+            alert('Đã thêm sách thành công!\n\nThông tin sách:\n- Tên: ' + formData.bookName + '\n- ID: ' + formData.bookId + '\n- Tác giả: ' + formData.bookAuthor + '\n- Thể loại: ' + formData.bookGenre + '\n- Vị trí tủ: ' + formData.bookShelf + '\n- Loại văn học: ' + formData.bookType);
+            
+            // Đóng form
+            closeAddBookForm();
+        }
+        
+        // Đóng modal thêm sách khi click bên ngoài
+        document.getElementById('addBookModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAddBookForm();
+            }
+        });
+        
+        // Hàm hiển thị form trả sách
+        function showReturnBookForm() {
+            const modal = document.getElementById('returnBookModal');
+            modal.style.display = 'flex';
+        }
+        
+        // Hàm đóng form trả sách
+        function closeReturnBookForm() {
+            document.getElementById('returnBookModal').style.display = 'none';
+        }
+        
+        // Hàm xử lý trả sách
+        function returnBook(bookId, studentName) {
+            if (confirm('Xác nhận trả sách?\n\nSách: ' + bookId + '\nSinh viên: ' + studentName)) {
+                alert('Đã trả sách thành công!\n\nSách: ' + bookId + '\nSinh viên: ' + studentName + '\nNgày trả: ' + new Date().toLocaleDateString('vi-VN'));
+                
+                // Có thể thêm logic cập nhật trạng thái sách ở đây
+                // Ví dụ: thay đổi trạng thái từ "Đang mượn" thành "Đã trả"
+            }
+        }
+        
+        // Đóng modal trả sách khi click bên ngoài
+        document.getElementById('returnBookModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeReturnBookForm();
+            }
+        });
+        
+        // Hàm hiển thị section
+        function showSection(sectionId) {
+            // Ẩn tất cả sections
+            document.getElementById('homeSection').style.display = 'none';
+            document.getElementById('listSection').style.display = 'none';
+            document.getElementById('analysisSection').style.display = 'none';
+            document.getElementById('passwordSection').style.display = 'none';
+            document.getElementById('signoutSection').style.display = 'none';
+            
+            // Hiển thị section được chọn
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Cập nhật thời gian hiện tại nếu là signout section
+            if (sectionId === 'signoutSection') {
+                updateCurrentTime();
+                // Cập nhật thời gian mỗi giây
+                setInterval(updateCurrentTime, 1000);
+            }
+        }
+        
+        // Hàm cập nhật thời gian hiện tại
+        function updateCurrentTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('vi-VN', { 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            const dateString = now.toLocaleDateString('vi-VN', { 
+                day: '2-digit', 
+                month: '2-digit', 
+                year: 'numeric' 
+            });
+            document.getElementById('currentTime').textContent = `${timeString} - ${dateString}`;
+        }
+        
+        // Hàm hủy đăng xuất
+        function cancelSignout() {
+            showSection('homeSection');
+        }
+        
+        // Hàm xác nhận đăng xuất
+        function confirmSignout() {
+            if (confirm('Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?')) {
+                // Hiển thị loading
+                const signoutButton = event.target;
+                const originalText = signoutButton.innerHTML;
+                signoutButton.innerHTML = '<ion-icon name="hourglass-outline" style="margin-right:8px;font-size:1.1rem;"></ion-icon>Đang đăng xuất...';
+                signoutButton.disabled = true;
+                
+                // Giả lập thời gian đăng xuất
+                setTimeout(() => {
+                    alert('✅ Đăng xuất thành công!\n\nCảm ơn bạn đã sử dụng hệ thống quản lý thư viện PIIT.');
+                    
+                    // Chuyển về trang đăng nhập (giả lập)
+                    window.location.href = '../index.html';
+                }, 2000);
+            }
+        }
+        
+        // Hàm toggle hiển thị/ẩn mật khẩu
+        function togglePasswordVisibility(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(inputId + 'Icon');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.name = 'eye-off-outline';
+            } else {
+                input.type = 'password';
+                icon.name = 'eye-outline';
+            }
+        }
+        
+        // Hàm xử lý thay đổi mật khẩu
+        function submitChangePassword(event) {
+            event.preventDefault();
+            
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Kiểm tra mật khẩu hiện tại (giả lập)
+            if (currentPassword !== 'admin123') {
+                alert('❌ Mật khẩu hiện tại không đúng!');
+                return;
+            }
+            
+            // Kiểm tra mật khẩu mới có khớp không
+            if (newPassword !== confirmPassword) {
+                alert('❌ Mật khẩu xác nhận không khớp!');
+                return;
+            }
+            
+            // Kiểm tra độ mạnh mật khẩu
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if (!passwordRegex.test(newPassword)) {
+                alert('❌ Mật khẩu mới không đủ mạnh!\n\nYêu cầu:\n• Ít nhất 8 ký tự\n• Chứa chữ hoa và chữ thường\n• Chứa số và ký tự đặc biệt');
+                return;
+            }
+            
+            // Thay đổi mật khẩu thành công
+            alert('✅ Thay đổi mật khẩu thành công!\n\nMật khẩu mới đã được cập nhật.');
+            
+            // Reset form
+            document.getElementById('changePasswordForm').reset();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface</title>
+    <link rel="stylesheet" href="link.css">
+</head>
+
+<body>
+    <!-- Thanh điều hướng (Navigation Sidebar) -->
+    <div class="navigation">
+        <ul>
+            <!-- Các mục trong thanh điều hướng -->
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Proflie</span>
+                </a>
+            </li>
+               <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+               <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="heart-circle-outline"></ion-icon></span>
+                    <span class="title">Favorite</span>
+                </a>
+            </li>
+
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div id="mainContent">
+        <!-- Khu vực nội dung chính -->
+        <!-- Phần giao diện Home: Dashboard tổng quan -->
+        <div id="homeSection" style="display:none">
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">CHÀO MỪNG ĐẾN VỚI THƯ VIỆN PIIT</h2>
+            </div>
+            <div style="display:flex;justify-content:center;margin:40px 0 30px 0;">
+                <div style="position:relative;width:70%;max-width:600px;animation:float 6s ease-in-out infinite;">
+                    <input type="text" placeholder="Tìm kiếm sách, tác giả hoặc chủ đề..." style="width:100%;padding:20px 30px;border-radius:20px;border:none;font-size:1.1rem;outline:none;background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);box-shadow:0 15px 45px rgba(0,0,0,0.1);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);border:2px solid rgba(255,255,255,0.2);" onfocus="this.style.boxShadow='0 20px 60px rgba(102,126,234,0.2)';this.style.transform='scale(1.02)';this.style.border='2px solid rgba(102,126,234,0.3)'" onblur="this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.transform='scale(1)';this.style.border='2px solid rgba(255,255,255,0.2)'">
+                    <div style="position:absolute;right:25px;top:50%;transform:translateY(-50%);color:#667eea;font-size:1.4rem;animation:pulse 2s ease-in-out infinite;">🔍</div>
+                </div>
+            </div>
+            <div style="text-align:center;font-size:1.6rem;font-weight:700;margin-bottom:40px;color:#1a1a1a;letter-spacing:-0.5px;text-shadow:0 2px 4px rgba(0,0,0,0.1);">TIN TỨC MỚI NHẤT</div>
+            <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
+                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;min-height:140px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:#1a1a1a;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(102,126,234,0.2)';this.style.border='2px solid rgba(102,126,234,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(102,126,234,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <span style="position:relative;z-index:1;">Học phí năm học 2025-2026</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;min-height:140px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:#1a1a1a;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(102,126,234,0.2)';this.style.border='2px solid rgba(102,126,234,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(102,126,234,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <span style="position:relative;z-index:1;">Điểm chuẩn xét tuyển PTITHCM</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;min-height:140px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:#1a1a1a;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(102,126,234,0.2)';this.style.border='2px solid rgba(102,126,234,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(102,126,234,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    <span style="position:relative;z-index:1;">Thông tin cơ bản về trường</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phần giao diện Profile: chỉ còn Sinh viên -->
+        <div id="profileSection" style="display:none">
+            <!-- Giao diện Sinh viên -->
+            <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:32px;margin-bottom:32px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                <div style="display:flex;align-items:center;gap:24px;">
+                    <div style="position:relative;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" style="width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,0.15);border:4px solid rgba(255,255,255,0.8);">
+                        <div style="position:absolute;bottom:2px;right:2px;width:20px;height:20px;background:#10b981;border-radius:50%;border:3px solid white;"></div>
+                    </div>
+                    <div style="flex:1;">
+                        <h3 style="font-size:1.5rem;font-weight:600;color:#1a1a1a;margin-bottom:8px;">Nguyễn Văn A</h3>
+                        <p style="color:#666;font-size:1rem;margin-bottom:4px;"><strong>Mã sinh viên:</strong> 12345678</p>
+                        <p style="color:#666;font-size:1rem;margin-bottom:4px;"><strong>Lớp:</strong> KTPM2021</p>
+                        <p style="color:#666;font-size:1rem;"><strong>Trạng thái:</strong> <span style="color:#10b981;font-weight:600;">Đang hoạt động</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bảng sách đã mượn -->
+            <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:32px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                <h3 style="font-size:1.4rem;font-weight:600;color:#1a1a1a;margin-bottom:24px;">Sách đã mượn</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,0.5);border-radius:12px;overflow:hidden;">
+                        <thead>
+                            <tr style="background:linear-gradient(135deg,#4d5bf9,#6a82fb);">
+                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Tên sách</th>
+                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Ngày mượn</th>
+                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Hạn trả</th>
+                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="transition:background 0.2s;" onmouseover="this.style.background='rgba(77,91,249,0.05)'" onmouseout="this.style.background='transparent'">
+                                <td style="padding:16px 20px;color:#1a1a1a;font-weight:500;">Lập trình C++ cơ bản</td>
+                                <td style="padding:16px 20px;color:#666;">01/05/2024</td>
+                                <td style="padding:16px 20px;color:#666;">15/05/2024</td>
+                                <td style="padding:16px 20px;"><span style="background:#fef3c7;color:#92400e;padding:6px 12px;border-radius:20px;font-size:0.9rem;font-weight:500;">Đang mượn</span></td>
+                            </tr>
+                            <tr style="transition:background 0.2s;" onmouseover="this.style.background='rgba(77,91,249,0.05)'" onmouseout="this.style.background='transparent'">
+                                <td style="padding:16px 20px;color:#1a1a1a;font-weight:500;">Giải tích 1</td>
+                                <td style="padding:16px 20px;color:#666;">10/04/2024</td>
+                                <td style="padding:16px 20px;color:#666;">24/04/2024</td>
+                                <td style="padding:16px 20px;"><span style="background:#d1fae5;color:#065f46;padding:6px 12px;border-radius:20px;font-size:0.9rem;font-weight:500;">Đã trả</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    
+        <!-- Phần giao diện Favorite (Yêu thích) -->
+        <div id="favoriteSection" style="display:none">
+            <!-- Thanh tìm kiếm lớn phía trên -->
+            <div style="width:100%;margin-bottom:40px;">
+                <div style="position:relative;width:100%;max-width:800px;margin:0 auto;">
+                    <input type="text" placeholder="Tìm kiếm sách yêu thích của bạn..." style="width:100%;font-size:1.3rem;font-weight:500;padding:20px 30px;border:none;border-radius:20px;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);box-shadow:0 8px 32px rgba(0,0,0,0.1);outline:none;transition:all 0.3s ease;" onfocus="this.style.boxShadow='0 12px 48px rgba(0,0,0,0.15)'" onblur="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'">
+                    <div style="position:absolute;right:25px;top:50%;transform:translateY(-50%);color:#666;font-size:1.4rem;">🔍</div>
+                </div>
+            </div>
+            <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap;">
+                <!-- Kết quả tìm kiếm -->
+                <div style="flex:2;min-width:400px;">
+                    <div style="font-size:1.2rem;font-weight:600;margin-bottom:20px;color:#1a1a1a;">Kết quả tìm kiếm</div>
+                    <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:24px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 12px 48px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'">
+                        <div style="display:flex;gap:20px;align-items:flex-start;">
+                            <img src="hoavang.jpg" alt="Bìa sách Tôi thấy hoa vàng trên cỏ xanh" style="width:120px;height:160px;object-fit:cover;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.15);">
+                            <div style="flex:1;position:relative;">
+                                <div style="position:absolute;top:0;right:0;">
+                                    <button id="likeBtn" style="background:none;border:none;cursor:pointer;font-size:2rem;color:#ef4444;transition:all 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </button>
+                                </div>
+                                <div style="margin-top:8px;">
+                                    <h4 style="font-size:1.3rem;font-weight:600;color:#1a1a1a;margin-bottom:8px;">Tôi thấy hoa vàng trên có xanh</h4>
+                                    <p style="color:#666;font-size:1rem;margin-bottom:6px;"><strong>Tác giả:</strong> Nguyễn Nhật Ánh</p>
+                                    <p style="color:#666;font-size:1rem;margin-bottom:6px;"><strong>Năm xuất bản:</strong> 2010</p>
+                                    <p style="color:#666;font-size:1rem;"><strong>Thể loại:</strong> Tiểu thuyết, Văn học</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sách liên quan -->
+                <div style="flex:1;min-width:300px;">
+                    <div style="font-size:1.2rem;font-weight:600;margin-bottom:20px;color:#1a1a1a;">Sách liên quan</div>
+                    <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:24px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                        <div style="display:flex;flex-direction:column;gap:16px;">
+                            <div style="background:rgba(255,255,255,0.5);border-radius:12px;padding:16px;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(77,91,249,0.1)';this.style.transform='translateX(8px)'" onmouseout="this.style.background='rgba(255,255,255,0.5)';this.style.transform='translateX(0)'">
+                                <div style="font-weight:600;color:#1a1a1a;margin-bottom:4px;">Người giàu nhất thành Babylon</div>
+                                <div style="font-size:0.9rem;color:#666;">George S. Clason</div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.5);border-radius:12px;padding:16px;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(77,91,249,0.1)';this.style.transform='translateX(8px)'" onmouseout="this.style.background='rgba(255,255,255,0.5)';this.style.transform='translateX(0)'">
+                                <div style="font-weight:600;color:#1a1a1a;margin-bottom:4px;">Người đàn ông mang tên Ove</div>
+                                <div style="font-size:0.9rem;color:#666;">Fredrik Backman</div>
+                            </div>
+                            <div style="background:rgba(255,255,255,0.5);border-radius:12px;padding:16px;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(77,91,249,0.1)';this.style.transform='translateX(8px)'" onmouseout="this.style.background='rgba(255,255,255,0.5)';this.style.transform='translateX(0)'">
+                                <div style="font-weight:600;color:#1a1a1a;margin-bottom:4px;">Thần thoại Sisyphus</div>
+                                <div style="font-size:0.9rem;color:#666;">Albert Camus</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần giao diện Password (Đổi mật khẩu) -->
+        <div id="passwordSection" style="display:none">
+            <div style="max-width:450px;margin:0 auto;">
+                <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:16px;padding:30px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
+                    <div style="text-align:center;margin-bottom:24px;">
+                        <div style="width:60px;height:60px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;box-shadow:0 8px 24px rgba(77,91,249,0.3);">
+                            <ion-icon name="lock-closed" style="font-size:1.5rem;color:white;"></ion-icon>
+                        </div>
+                        <h2 style="font-size:1.5rem;font-weight:600;color:#1a1a1a;margin-bottom:6px;">Đổi mật khẩu</h2>
+                        <p style="color:#666;font-size:0.95rem;">Vui lòng nhập thông tin để cập nhật mật khẩu của bạn</p>
+                    </div>
+                    
+                    <form style="display:flex;flex-direction:column;gap:18px;">
+                        <div>
+                            <label style="display:block;font-weight:600;color:#1a1a1a;margin-bottom:6px;font-size:0.95rem;">Mật khẩu hiện tại</label>
+                            <div style="position:relative;">
+                                <input type="password" id="currentPassword" placeholder="Nhập mật khẩu hiện tại" style="width:100%;padding:12px 16px;border:none;border-radius:10px;background:rgba(255,255,255,0.8);box-shadow:0 4px 16px rgba(0,0,0,0.05);outline:none;font-size:0.95rem;transition:all 0.3s ease;" onfocus="this.style.boxShadow='0 8px 24px rgba(77,91,249,0.15)'" onblur="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'">
+                                <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#666;cursor:pointer;" onclick="togglePassword('currentPassword')">
+                                    <ion-icon name="eye-outline" style="font-size:1rem;"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display:block;font-weight:600;color:#1a1a1a;margin-bottom:6px;font-size:0.95rem;">Mật khẩu mới</label>
+                            <div style="position:relative;">
+                                <input type="password" id="newPassword" placeholder="Nhập mật khẩu mới" style="width:100%;padding:12px 16px;border:none;border-radius:10px;background:rgba(255,255,255,0.8);box-shadow:0 4px 16px rgba(0,0,0,0.05);outline:none;font-size:0.95rem;transition:all 0.3s ease;" onfocus="this.style.boxShadow='0 8px 24px rgba(77,91,249,0.15)'" onblur="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'">
+                                <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#666;cursor:pointer;" onclick="togglePassword('newPassword')">
+                                    <ion-icon name="eye-outline" style="font-size:1rem;"></ion-icon>
+                                </div>
+                            </div>
+                            <div style="margin-top:6px;font-size:0.85rem;color:#666;">
+                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                                    <div id="lengthCheck" style="width:10px;height:10px;border-radius:50%;background:#e5e7eb;"></div>
+                                    <span>Ít nhất 8 ký tự</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+                                    <div id="uppercaseCheck" style="width:10px;height:10px;border-radius:50%;background:#e5e7eb;"></div>
+                                    <span>Có chữ hoa</span>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:6px;">
+                                    <div id="numberCheck" style="width:10px;height:10px;border-radius:50%;background:#e5e7eb;"></div>
+                                    <span>Có số</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label style="display:block;font-weight:600;color:#1a1a1a;margin-bottom:6px;font-size:0.95rem;">Xác nhận mật khẩu mới</label>
+                            <div style="position:relative;">
+                                <input type="password" id="confirmPassword" placeholder="Nhập lại mật khẩu mới" style="width:100%;padding:12px 16px;border:none;border-radius:10px;background:rgba(255,255,255,0.8);box-shadow:0 4px 16px rgba(0,0,0,0.05);outline:none;font-size:0.95rem;transition:all 0.3s ease;" onfocus="this.style.boxShadow='0 8px 24px rgba(77,91,249,0.15)'" onblur="this.style.boxShadow='0 4px 16px rgba(0,0,0,0.05)'">
+                                <div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#666;cursor:pointer;" onclick="togglePassword('confirmPassword')">
+                                    <ion-icon name="eye-outline" style="font-size:1rem;"></ion-icon>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="button" onclick="updatePassword()" style="background:linear-gradient(135deg,#4d5bf9,#6a82fb);color:white;border:none;padding:12px 24px;border-radius:10px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s ease;margin-top:12px;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(77,91,249,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                            Cập nhật mật khẩu
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần giao diện Sign out (Đăng xuất) -->
+        <div id="signoutSection" style="display:none">
+            <div style="max-width:500px;margin:0 auto;">
+                <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:40px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);text-align:center;">
+                    <div style="width:100px;height:100px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 8px 24px rgba(77,91,249,0.3);">
+                        <ion-icon name="log-out" style="font-size:2.5rem;color:white;"></ion-icon>
+                    </div>
+                    
+                    <h2 style="font-size:2rem;font-weight:600;color:#1a1a1a;margin-bottom:12px;">Đăng xuất</h2>
+                    <p style="color:#666;font-size:1.1rem;margin-bottom:32px;line-height:1.6;">Bạn có chắc chắn muốn đăng xuất khỏi hệ thống thư viện PIIT?</p>
+                    
+                    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+                        <button onclick="cancelSignout()" style="background:rgba(255,255,255,0.8);color:#666;border:2px solid #e5e7eb;padding:14px 32px;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.9)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.8)';this.style.transform='translateY(0)'">
+                            Hủy bỏ
+                        </button>
+                        <button onclick="confirmSignout()" style="background:linear-gradient(135deg,#4d5bf9,#6a82fb);color:white;border:none;padding:14px 32px;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(77,91,249,0.3)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                            Đăng xuất
+                        </button>
+                    </div>
+                    
+                    <div style="margin-top:32px;padding:20px;background:rgba(77,91,249,0.1);border-radius:12px;border-left:4px solid #4d5bf9;">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                            <ion-icon name="information-circle" style="color:#4d5bf9;font-size:1.2rem;"></ion-icon>
+                            <span style="font-weight:600;color:#4d5bf9;">Lưu ý</span>
+                        </div>
+                        <p style="color:#666;font-size:0.95rem;margin:0;line-height:1.5;">
+                            Sau khi đăng xuất, bạn sẽ cần đăng nhập lại để truy cập vào hệ thống. Tất cả dữ liệu phiên làm việc sẽ được xóa.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script> 
+    <script>
+        // Xử lý chuyển tab và hiển thị nội dung tương ứng
+        let list = document.querySelectorAll('.list');
+        for (let i = 0; i < list.length; i++) {
+            list[i].onclick = function() {
+                let j = 0;
+                while(j <list.length) {
+                    list[j++].className = 'list';
+                }
+                list[i].className = 'list active';
+                // Hiển thị nội dung tương ứng với tab được chọn
+                const homeSection = document.getElementById('homeSection');
+                const profileSection = document.getElementById('profileSection');
+                const favoriteSection = document.getElementById('favoriteSection');
+                const passwordSection = document.getElementById('passwordSection');
+                const signoutSection = document.getElementById('signoutSection');
+                
+                // Ẩn tất cả sections trước
+                homeSection.style.display = 'none';
+                profileSection.style.display = 'none';
+                favoriteSection.style.display = 'none';
+                passwordSection.style.display = 'none';
+                signoutSection.style.display = 'none';
+                
+                // Hiển thị section tương ứng
+                if (list[i].querySelector('.title').textContent.trim() === 'Home') {
+                    homeSection.style.display = '';
+                } else if (list[i].querySelector('.title').textContent.trim() === 'Proflie') {
+                    profileSection.style.display = '';
+                } else if (list[i].querySelector('.title').textContent.trim() === 'Favorite') {
+                    favoriteSection.style.display = '';
+                } else if (list[i].querySelector('.title').textContent.trim() === 'Password') {
+                    passwordSection.style.display = '';
+                } else if (list[i].querySelector('.title').textContent.trim() === 'Sign out') {
+                    signoutSection.style.display = '';
+                }
+            }
+        }
+
+        // Xóa code chuyển vai trò sinh viên/quản trị viên
+
+        // Mặc định chỉ hiện Home khi vào trang
+        window.onload = function() {
+            document.querySelector('.list .title').click();
+        };
+
+        // Toggle password visibility
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling.querySelector('ion-icon');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.name = 'eye-off-outline';
+            } else {
+                input.type = 'password';
+                icon.name = 'eye-outline';
+            }
+        }
+
+        // Validate password strength
+        document.getElementById('newPassword').addEventListener('input', function() {
+            const password = this.value;
+            const lengthCheck = document.getElementById('lengthCheck');
+            const uppercaseCheck = document.getElementById('uppercaseCheck');
+            const numberCheck = document.getElementById('numberCheck');
+            
+            // Check length
+            if (password.length >= 8) {
+                lengthCheck.style.background = '#10b981';
+            } else {
+                lengthCheck.style.background = '#e5e7eb';
+            }
+            
+            // Check uppercase
+            if (/[A-Z]/.test(password)) {
+                uppercaseCheck.style.background = '#10b981';
+            } else {
+                uppercaseCheck.style.background = '#e5e7eb';
+            }
+            
+            // Check number
+            if (/\d/.test(password)) {
+                numberCheck.style.background = '#10b981';
+            } else {
+                numberCheck.style.background = '#e5e7eb';
+            }
+        });
+
+        // Update password function
+        function updatePassword() {
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Basic validation
+            if (!currentPassword || !newPassword || !confirmPassword) {
+                alert('Vui lòng điền đầy đủ thông tin!');
+                return;
+            }
+            
+            if (newPassword !== confirmPassword) {
+                alert('Mật khẩu xác nhận không khớp!');
+                return;
+            }
+            
+            if (newPassword.length < 8) {
+                alert('Mật khẩu mới phải có ít nhất 8 ký tự!');
+                return;
+            }
+            
+            if (!/[A-Z]/.test(newPassword)) {
+                alert('Mật khẩu mới phải có ít nhất 1 chữ hoa!');
+                return;
+            }
+            
+            if (!/\d/.test(newPassword)) {
+                alert('Mật khẩu mới phải có ít nhất 1 số!');
+                return;
+            }
+            
+            // Simulate password update
+            alert('Mật khẩu đã được cập nhật thành công!');
+            
+            // Clear form
+            document.getElementById('currentPassword').value = '';
+            document.getElementById('newPassword').value = '';
+            document.getElementById('confirmPassword').value = '';
+            
+            // Reset password strength indicators
+            document.getElementById('lengthCheck').style.background = '#e5e7eb';
+            document.getElementById('uppercaseCheck').style.background = '#e5e7eb';
+            document.getElementById('numberCheck').style.background = '#e5e7eb';
+        }
+
+        // Sign out confirmation
+        function confirmSignout() {
+            alert('Đăng xuất thành công!');
+            // Redirect to login page or clear session
+            window.location.href = 'login.html'; // Assuming login.html is the correct path
+        }
+
+        function cancelSignout() {
+            document.getElementById('signoutSection').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
