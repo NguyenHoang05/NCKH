@@ -8,6 +8,19 @@
 </head>
 
 <body>
+    <!-- Header với logo trường -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="PTIT.png" alt="Logo PTIT" class="logo-image">
+            </div>
+            <div class="school-info">
+                <h1 class="school-name-vi">HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG</h1>
+                <h2 class="school-name-en">POSTS AND TELECOMMUNICATIONS INSTITUTE OF TECHNOLOGY</h2>
+            </div>
+        </div>
+    </div>
+
     <!-- Thanh điều hướng (Navigation Sidebar) -->
     <div class="navigation">
         <ul>
@@ -54,41 +67,101 @@
     
     <div id="mainContent">
         <!-- Khu vực nội dung chính -->
-        <!-- Phần giao diện Home: Dashboard tổng quan -->
-        <div id="homeSection" style="display:none">
-            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
-                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">CHÀO MỪNG ĐẾN VỚI THƯ VIỆN PIIT</h2>
-            </div>
-            <div style="display:flex;justify-content:center;margin:40px 0 30px 0;">
-                <div style="position:relative;width:70%;max-width:600px;animation:float 6s ease-in-out infinite;">
-                    <input type="text" placeholder="Tìm kiếm sách, tác giả hoặc chủ đề..." style="width:100%;padding:20px 30px;border-radius:20px;border:none;font-size:1.1rem;outline:none;background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);box-shadow:0 15px 45px rgba(0,0,0,0.1);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);border:2px solid rgba(255,255,255,0.2);" onfocus="this.style.boxShadow='0 20px 60px rgba(102,126,234,0.2)';this.style.transform='scale(1.02)';this.style.border='2px solid rgba(102,126,234,0.3)'" onblur="this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.transform='scale(1)';this.style.border='2px solid rgba(255,255,255,0.2)'">
-                    <div style="position:absolute;right:25px;top:50%;transform:translateY(-50%);color:#667eea;font-size:1.4rem;animation:pulse 2s ease-in-out infinite;">🔍</div>
+        <!-- Phần giao diện Home: Dashboard tổng quan -->   
+        <div id="homeSection" style="display:none;background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);min-height:100vh;padding:60px 40px;">
+            <!-- Tiêu đề chào mừng -->
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:80px;">
+                <div style="text-align:center;">
+                    <div style="width:120px;height:120px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px;box-shadow:0 20px 60px rgba(77,91,249,0.3);">
+                        <span style="font-size:3rem;color:white;">📚</span>
+                    </div>
+                                         <h2 style="color:#1e293b;text-align:center;font-size:3.5rem;font-weight:900;letter-spacing:-2px;margin:0;line-height:1.1;font-family:'Outfit',sans-serif;">CHÀO MỪNG ĐẾN VỚI</h2>
+                     <h1 style="color:#4d5bf9;text-align:center;font-size:4rem;font-weight:900;letter-spacing:-2px;margin:10px 0 0 0;line-height:1.1;text-shadow:0 4px 20px rgba(77,91,249,0.3);font-family:'Outfit',sans-serif;">THƯ VIỆN PTIT</h1>
+                     <p style="color:#64748b;font-size:1.2rem;margin:20px 0 0 0;font-weight:500;font-family:'Inter',sans-serif;">Khám phá kho tàng tri thức vô tận</p>
                 </div>
             </div>
-            <div style="text-align:center;font-size:1.6rem;font-weight:700;margin-bottom:40px;color:#1a1a1a;letter-spacing:-0.5px;text-shadow:0 2px 4px rgba(0,0,0,0.1);">TIN TỨC MỚI NHẤT</div>
-            <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
-                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;min-height:140px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:#1a1a1a;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(102,126,234,0.2)';this.style.border='2px solid rgba(102,126,234,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
-                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(102,126,234,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
-                    <span style="position:relative;z-index:1;">Học phí năm học 2025-2026</span>
+            
+            <!-- Thanh tìm kiếm -->
+            <div style="display:flex;justify-content:center;margin:60px 0 80px 0;">
+                <div style="position:relative;width:90%;max-width:800px;">
+                    <div style="position:relative;background:white;border-radius:30px;box-shadow:0 25px 80px rgba(0,0,0,0.08);border:2px solid #e2e8f0;overflow:hidden;">
+                                                 <input type="text" placeholder="🔍 Tìm kiếm sách, tác giả hoặc chủ đề..." style="width:100%;padding:30px 40px;border:none;font-size:1.3rem;outline:none;background:transparent;transition:all 0.3s ease;font-family:'Inter',sans-serif;font-weight:500;" onfocus="this.parentElement.style.boxShadow='0 30px 100px rgba(77,91,249,0.15)';this.parentElement.style.border='2px solid #4d5bf9'" onblur="this.parentElement.style.boxShadow='0 25px 80px rgba(0,0,0,0.08)';this.parentElement.style.border='2px solid #e2e8f0'">
+                        <div style="position:absolute;right:40px;top:50%;transform:translateY(-50%);width:50px;height:50px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
+                            <span style="color:white;font-size:1.2rem;">🔍</span>
+                        </div>
+                    </div>
                 </div>
-                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;min-height:140px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:#1a1a1a;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(102,126,234,0.2)';this.style.border='2px solid rgba(102,126,234,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
-                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(102,126,234,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
-                    <span style="position:relative;z-index:1;">Điểm chuẩn xét tuyển PTITHCM</span>
+            </div>
+            
+            <!-- Tiêu đề tin tức -->
+            <div style="text-align:center;margin-bottom:60px;">
+                <div style="display:inline-block;background:linear-gradient(135deg,#4d5bf9,#6a82fb);padding:15px 40px;border-radius:50px;box-shadow:0 15px 40px rgba(77,91,249,0.3);">
+                <h3 style="color:white;font-size:1.8rem;font-weight:700;margin:0;letter-spacing:-0.5px;font-family:'Plus+Jakarta+Sans',sans-serif;">📰 TIN TỨC MỚI NHẤT</h3>
                 </div>
-                <div style="background:rgba(255,255,255,0.95);backdrop-filter:blur(15px);border-radius:20px;padding:30px;min-width:300px;min-height:140px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:#1a1a1a;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px) scale(1.05)';this.style.boxShadow='0 25px 70px rgba(102,126,234,0.2)';this.style.border='2px solid rgba(102,126,234,0.3)'" onmouseout="this.style.transform='translateY(0) scale(1)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)';this.style.border='2px solid rgba(255,255,255,0.3)'">
-                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(102,126,234,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
-                    <span style="position:relative;z-index:1;">Thông tin cơ bản về trường</span>
+            </div>
+            
+            <!-- Các tin tức -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:40px;max-width:1200px;margin:0 auto;padding:0 20px;">
+                <!-- Tin tức 1: Học phí -->
+                <div style="background:white;border-radius:30px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:2px solid #f1f5f9;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px)';this.style.boxShadow='0 30px 80px rgba(77,91,249,0.15)';this.style.border='2px solid #4d5bf9'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.08)';this.style.border='2px solid #f1f5f9'">
+                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4d5bf9,#6a82fb);"></div>
+                    <div style="text-align:center;">
+                        <div style="width:80px;height:80px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;box-shadow:0 10px 30px rgba(251,191,36,0.3);">
+                            <span style="font-size:2.5rem;">💰</span>
+                        </div>
+                            <h4 style="font-size:1.4rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;font-family:'Plus+Jakarta+Sans',sans-serif;">Học phí năm học 2025-2026</h4>
+                         <p style="color:#64748b;font-size:1rem;margin:0;line-height:1.6;font-family:'Inter',sans-serif;">Cập nhật mới nhất về mức học phí các ngành đào tạo</p>
+                         <div style="margin-top:20px;padding:8px 20px;background:#fef3c7;color:#92400e;border-radius:20px;font-size:0.9rem;font-weight:600;display:inline-block;font-family:'Inter',sans-serif;">Mới cập nhật</div>
+                    </div>
+                </div>
+                
+                <!-- Tin tức 2: Điểm chuẩn -->
+                <div style="background:white;border-radius:30px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:2px solid #f1f5f9;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px)';this.style.boxShadow='0 30px 80px rgba(77,91,249,0.15)';this.style.border='2px solid #4d5bf9'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.08)';this.style.border='2px solid #f1f5f9'">
+                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4d5bf9,#6a82fb);"></div>
+                    <div style="text-align:center;">
+                        <div style="width:80px;height:80px;background:linear-gradient(135deg,#dbeafe,#93c5fd);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;box-shadow:0 10px 30px rgba(59,130,246,0.3);">
+                            <span style="font-size:2.5rem;">📊</span>
+                        </div>
+                            <h4 style="font-size:1.4rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;font-family:'Plus+Jakarta+Sans',sans-serif;">Điểm chuẩn năm 2025-2026</h4>
+                         <p style="color:#64748b;font-size:1rem;margin:0;line-height:1.6;font-family:'Inter',sans-serif;">Thông tin điểm chuẩn xét tuyển các ngành</p>
+                         <div style="margin-top:20px;padding:8px 20px;background:#dbeafe;color:#1e40af;border-radius:20px;font-size:0.9rem;font-weight:600;display:inline-block;font-family:'Inter',sans-serif;">Sắp công bố</div>
+                    </div>
+                </div>
+                
+                <!-- Tin tức 3: Thông tin trường -->
+                <div style="background:white;border-radius:30px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:2px solid #f1f5f9;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-15px)';this.style.boxShadow='0 30px 80px rgba(77,91,249,0.15)';this.style.border='2px solid #4d5bf9'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.08)';this.style.border='2px solid #f1f5f9'">
+                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4d5bf9,#6a82fb);"></div>
+                    <div style="text-align:center;">
+                        <div style="width:80px;height:80px;background:linear-gradient(135deg,#dcfce7,#86efac);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 25px;box-shadow:0 10px 30px rgba(34,197,94,0.3);">
+                            <span style="font-size:2.5rem;">🏫</span>
+                        </div>
+                            <h4 style="font-size:1.4rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;font-family:'Plus+Jakarta+Sans',sans-serif;">Thông tin về trường</h4>
+                         <p style="color:#64748b;font-size:1rem;margin:0;line-height:1.6;font-family:'Inter',sans-serif;">Giới thiệu tổng quan về Học viện PTIT</p>
+                         <div style="margin-top:20px;padding:8px 20px;background:#dcfce7;color:#166534;border-radius:20px;font-size:0.9rem;font-weight:600;display:inline-block;font-family:'Inter',sans-serif;">Luôn cập nhật</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Thông tin bổ sung -->
+            <div style="text-align:center;margin-top:80px;max-width:800px;margin-left:auto;margin-right:auto;">
+                <div style="background:white;border-radius:30px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:2px solid #f1f5f9;">
+                    <div style="width:60px;height:60px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 10px 30px rgba(77,91,249,0.3);">
+                        <span style="font-size:1.5rem;color:white;">💡</span>
+                    </div>
+                        <h4 style="font-size:1.3rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;font-family:'Plus+Jakarta+Sans',sans-serif;">Lưu ý quan trọng</h4>
+                     <p style="color:#64748b;font-size:1.1rem;margin:0;line-height:1.6;font-family:'Inter',sans-serif;">
+                         Các thông tin trên được cập nhật liên tục. Vui lòng theo dõi để nắm bắt những thay đổi mới nhất về học phí, điểm chuẩn và thông tin trường!
+                     </p>
                 </div>
             </div>
         </div>
-        
         <!-- Phần giao diện Profile: chỉ còn Sinh viên -->
         <div id="profileSection" style="display:none">
             <!-- Giao diện Sinh viên -->
             <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:32px;margin-bottom:32px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
                 <div style="display:flex;align-items:center;gap:24px;">
                     <div style="position:relative;">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="avatar" style="width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,0.15);border:4px solid rgba(255,255,255,0.8);">
+                        <img src="Profile.jpg" alt="avatar" style="width:80px;height:80px;border-radius:50%;object-fit:cover;box-shadow:0 8px 24px rgba(0,0,0,0.15);border:4px solid rgba(255,255,255,0.8);">
                         <div style="position:absolute;bottom:2px;right:2px;width:20px;height:20px;background:#10b981;border-radius:50%;border:3px solid white;"></div>
                     </div>
                     <div style="flex:1;">
@@ -132,6 +205,157 @@
         </div>
         
     
+        <!-- Phần giao diện Help (Trợ giúp) -->
+        <div id="helpSection" style="display:none">
+            <!-- Header Help -->
+            <div style="text-align:center;margin-bottom:60px;">
+                <div style="width:100px;height:100px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 30px;box-shadow:0 20px 60px rgba(77,91,249,0.3);">
+                    <span style="font-size:3rem;color:white;">❓</span>
+                </div>
+                <h2 style="color:#1e293b;font-size:3rem;font-weight:800;margin:0;letter-spacing:-1px;">Trung tâm Trợ giúp</h2>
+                <p style="color:#64748b;font-size:1.2rem;margin:20px 0 0 0;font-weight:500;">Chúng tôi luôn sẵn sàng hỗ trợ bạn</p>
+            </div>
+
+            <!-- Thanh tìm kiếm FAQ -->
+            <div style="display:flex;justify-content:center;margin:50px 0 60px 0;">
+                <div style="position:relative;width:80%;max-width:700px;">
+                    <div style="position:relative;background:white;border-radius:25px;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:2px solid #e2e8f0;overflow:hidden;">
+                        <input type="text" placeholder="🔍 Tìm kiếm câu hỏi thường gặp..." style="width:100%;padding:25px 35px;border:none;font-size:1.2rem;outline:none;background:transparent;transition:all 0.3s ease;" onfocus="this.parentElement.style.boxShadow='0 25px 80px rgba(77,91,249,0.15)';this.parentElement.style.border='2px solid #4d5bf9'" onblur="this.parentElement.style.boxShadow='0 20px 60px rgba(0,0,0,0.08)';this.parentElement.style.border='2px solid #e2e8f0'">
+                        <div style="position:absolute;right:35px;top:50%;transform:translateY(-50%);width:45px;height:45px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s ease;" onmouseover="this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
+                            <span style="color:white;font-size:1.1rem;">🔍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Danh mục trợ giúp -->
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;max-width:1200px;margin:0 auto;padding:0 20px;margin-bottom:60px;">
+                <!-- Mượn sách -->
+                <div style="background:white;border-radius:25px;padding:35px;box-shadow:0 15px 50px rgba(0,0,0,0.08);border:2px solid #f1f5f9;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 25px 70px rgba(77,91,249,0.15)';this.style.border='2px solid #4d5bf9'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 50px rgba(0,0,0,0.08)';this.style.border='2px solid #f1f5f9'">
+                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4d5bf9,#6a82fb);"></div>
+                    <div style="text-align:center;">
+                        <div style="width:70px;height:70px;background:linear-gradient(135deg,#dbeafe,#93c5fd);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 10px 30px rgba(59,130,246,0.3);">
+                            <span style="font-size:2rem;">📚</span>
+                        </div>
+                        <h4 style="font-size:1.3rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;">Mượn sách</h4>
+                        <p style="color:#64748b;font-size:0.95rem;margin:0;line-height:1.6;">Hướng dẫn mượn, trả sách và quản lý tài khoản</p>
+                        <div style="margin-top:20px;padding:8px 20px;background:#dbeafe;color:#1e40af;border-radius:20px;font-size:0.9rem;font-weight:600;display:inline-block;">5 bài viết</div>
+                    </div>
+                </div>
+
+                <!-- Sử dụng thư viện -->
+                <div style="background:white;border-radius:25px;padding:35px;box-shadow:0 15px 50px rgba(0,0,0,0.08);border:2px solid #f1f5f9;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 25px 70px rgba(77,91,249,0.15)';this.style.border='2px solid #4d5bf9'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 50px rgba(0,0,0,0.08)';this.style.border='2px solid #f1f5f9'">
+                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4d5bf9,#6a82fb);"></div>
+                    <div style="text-align:center;">
+                        <div style="width:70px;height:70px;background:linear-gradient(135deg,#dcfce7,#86efac);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 10px 30px rgba(34,197,94,0.3);">
+                            <span style="font-size:2rem;">🏛️</span>
+                        </div>
+                        <h4 style="font-size:1.3rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;">Sử dụng thư viện</h4>
+                        <p style="color:#64748b;font-size:0.95rem;margin:0;line-height:1.6;">Quy định và hướng dẫn sử dụng thư viện</p>
+                        <div style="margin-top:20px;padding:8px 20px;background:#dcfce7;color:#166534;border-radius:20px;font-size:0.9rem;font-weight:600;display:inline-block;">8 bài viết</div>
+                    </div>
+                </div>
+
+                <!-- Tài khoản & Bảo mật -->
+                <div style="background:white;border-radius:25px;padding:35px;box-shadow:0 15px 50px rgba(0,0,0,0.08);border:2px solid #f1f5f9;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);cursor:pointer;position:relative;overflow:hidden;" onmouseover="this.style.transform='translateY(-10px)';this.style.boxShadow='0 25px 70px rgba(77,91,249,0.15)';this.style.border='2px solid #4d5bf9'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 50px rgba(0,0,0,0.08)';this.style.border='2px solid #f1f5f9'">
+                    <div style="position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#4d5bf9,#6a82fb);"></div>
+                    <div style="text-align:center;">
+                        <div style="width:70px;height:70px;background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 10px 30px rgba(251,191,36,0.3);">
+                            <span style="font-size:2rem;">🔐</span>
+                        </div>
+                        <h4 style="font-size:1.3rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;">Tài khoản & Bảo mật</h4>
+                        <p style="color:#64748b;font-size:0.95rem;margin:0;line-height:1.6;">Quản lý tài khoản và bảo mật thông tin</p>
+                        <div style="margin-top:20px;padding:8px 20px;background:#fef3c7;color:#92400e;border-radius:20px;font-size:0.9rem;font-weight:600;display:inline-block;">6 bài viết</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div style="max-width:900px;margin:0 auto;padding:0 20px;">
+                <div style="text-align:center;margin-bottom:50px;">
+                    <h3 style="color:#1e293b;font-size:2.2rem;font-weight:700;margin:0;">❓ Câu hỏi thường gặp</h3>
+                </div>
+
+                <!-- FAQ Items -->
+                <div style="display:flex;flex-direction:column;gap:20px;">
+                    <!-- FAQ 1 -->
+                    <div style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 40px rgba(0,0,0,0.08);border:2px solid #f1f5f9;cursor:pointer;transition:all 0.3s ease;" onclick="toggleFAQ(this)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 15px 50px rgba(77,91,249,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h4 style="font-size:1.1rem;font-weight:600;color:#1e293b;margin:0;">Làm thế nào để mượn sách?</h4>
+                            <span style="font-size:1.5rem;color:#4d5bf9;transition:transform 0.3s ease;">+</span>
+                        </div>
+                        <div style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;">
+                            <p style="color:#64748b;font-size:0.95rem;margin:20px 0 0 0;line-height:1.6;">
+                                Để mượn sách, bạn cần: 1) Đăng nhập vào tài khoản, 2) Tìm kiếm sách trong danh mục, 3) Nhấn nút "Mượn sách", 4) Xác nhận thông tin mượn. Sách sẽ được giữ trong 14 ngày.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 40px rgba(0,0,0,0.08);border:2px solid #f1f5f9;cursor:pointer;transition:all 0.3s ease;" onclick="toggleFAQ(this)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 15px 50px rgba(77,91,249,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h4 style="font-size:1.1rem;font-weight:600;color:#1e293b;margin:0;">Thời gian mượn sách tối đa là bao lâu?</h4>
+                            <span style="font-size:1.5rem;color:#4d5bf9;transition:transform 0.3s ease;">+</span>
+                        </div>
+                        <div style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;">
+                            <p style="color:#64748b;font-size:0.95rem;margin:20px 0 0 0;line-height:1.6;">
+                                Thời gian mượn sách tối đa là 14 ngày. Bạn có thể gia hạn thêm 7 ngày nếu không có ai đặt trước sách đó. Vui lòng trả sách đúng hạn để tránh phạt.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 40px rgba(0,0,0,0.08);border:2px solid #f1f5f9;cursor:pointer;transition:all 0.3s ease;" onclick="toggleFAQ(this)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 15px 50px rgba(77,91,249,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h4 style="font-size:1.1rem;font-weight:600;color:#1e293b;margin:0;">Làm sao để đặt trước sách?</h4>
+                            <span style="font-size:1.5rem;color:#4d5bf9;transition:transform 0.3s ease;">+</span>
+                        </div>
+                        <div style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;">
+                            <p style="color:#64748b;font-size:0.95rem;margin:20px 0 0 0;line-height:1.6;">
+                                Khi sách đang được mượn, bạn có thể nhấn nút "Đặt trước". Khi sách được trả về, hệ thống sẽ thông báo và bạn có 3 ngày để đến thư viện nhận sách.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div style="background:white;border-radius:20px;padding:25px;box-shadow:0 10px 40px rgba(0,0,0,0.08);border:2px solid #f1f5f9;cursor:pointer;transition:all 0.3s ease;" onclick="toggleFAQ(this)" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 15px 50px rgba(77,91,249,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 40px rgba(0,0,0,0.08)'">
+                        <div style="display:flex;justify-content:space-between;align-items:center;">
+                            <h4 style="font-size:1.1rem;font-weight:600;color:#1e293b;margin:0;">Quên mật khẩu phải làm sao?</h4>
+                            <span style="font-size:1.5rem;color:#4d5bf9;transition:transform 0.3s ease;">+</span>
+                        </div>
+                        <div style="max-height:0;overflow:hidden;transition:max-height 0.3s ease;">
+                            <p style="color:#64748b;font-size:0.95rem;margin:20px 0 0 0;line-height:1.6;">
+                                Nếu quên mật khẩu, bạn có thể: 1) Sử dụng chức năng "Quên mật khẩu" trên trang đăng nhập, 2) Nhập email đăng ký, 3) Kiểm tra email để lấy link đặt lại mật khẩu mới.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Liên hệ hỗ trợ -->
+            <div style="text-align:center;margin-top:80px;max-width:800px;margin-left:auto;margin-right:auto;">
+                <div style="background:white;border-radius:25px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.08);border:2px solid #f1f5f9;">
+                    <div style="width:70px;height:70px;background:linear-gradient(135deg,#4d5bf9,#6a82fb);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 10px 30px rgba(77,91,249,0.3);">
+                        <span style="font-size:1.8rem;color:white;">📞</span>
+                    </div>
+                    <h4 style="font-size:1.4rem;font-weight:700;color:#1e293b;margin:0 0 15px 0;">Cần hỗ trợ thêm?</h4>
+                    <p style="color:#64748b;font-size:1.1rem;margin:0 0 25px 0;line-height:1.6;">
+                        Nếu bạn không tìm thấy câu trả lời trong phần FAQ, hãy liên hệ với chúng tôi
+                    </p>
+                    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:10px;padding:15px 25px;background:#f8fafc;border-radius:15px;border:2px solid #e2e8f0;">
+                            <span style="font-size:1.2rem;">📧</span>
+                            <span style="color:#1e293b;font-weight:600;">support@ptit.edu.vn</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:10px;padding:15px 25px;background:#f8fafc;border-radius:15px;border:2px solid #e2e8f0;">
+                            <span style="font-size:1.2rem;">📱</span>
+                            <span style="color:#1e293b;font-weight:600;">1900-xxxx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Phần giao diện Favorite (Yêu thích) -->
         <div id="favoriteSection" style="display:none">
             <!-- Thanh tìm kiếm lớn phía trên -->
@@ -298,40 +522,63 @@
                     list[j++].className = 'list';
                 }
                 list[i].className = 'list active';
-                // Hiển thị nội dung tương ứng với tab được chọn
-                const homeSection = document.getElementById('homeSection');
-                const profileSection = document.getElementById('profileSection');
-                const favoriteSection = document.getElementById('favoriteSection');
-                const passwordSection = document.getElementById('passwordSection');
-                const signoutSection = document.getElementById('signoutSection');
+                                 // Hiển thị nội dung tương ứng với tab được chọn
+                 const homeSection = document.getElementById('homeSection');
+                 const profileSection = document.getElementById('profileSection');
+                 const helpSection = document.getElementById('helpSection');
+                 const favoriteSection = document.getElementById('favoriteSection');
+                 const passwordSection = document.getElementById('passwordSection');
+                 const signoutSection = document.getElementById('signoutSection');
+                 
+                 // Ẩn tất cả sections trước
+                 homeSection.style.display = 'none';
+                 profileSection.style.display = 'none';
+                 helpSection.style.display = 'none';
+                 favoriteSection.style.display = 'none';
+                 passwordSection.style.display = 'none';
+                 signoutSection.style.display = 'none';
                 
-                // Ẩn tất cả sections trước
-                homeSection.style.display = 'none';
-                profileSection.style.display = 'none';
-                favoriteSection.style.display = 'none';
-                passwordSection.style.display = 'none';
-                signoutSection.style.display = 'none';
-                
-                // Hiển thị section tương ứng
-                if (list[i].querySelector('.title').textContent.trim() === 'Home') {
-                    homeSection.style.display = '';
-                } else if (list[i].querySelector('.title').textContent.trim() === 'Proflie') {
-                    profileSection.style.display = '';
-                } else if (list[i].querySelector('.title').textContent.trim() === 'Favorite') {
-                    favoriteSection.style.display = '';
-                } else if (list[i].querySelector('.title').textContent.trim() === 'Password') {
-                    passwordSection.style.display = '';
-                } else if (list[i].querySelector('.title').textContent.trim() === 'Sign out') {
-                    signoutSection.style.display = '';
-                }
+                                 // Hiển thị section tương ứng
+                 if (list[i].querySelector('.title').textContent.trim() === 'Home') {
+                     homeSection.style.display = '';
+                 } else if (list[i].querySelector('.title').textContent.trim() === 'Proflie') {
+                     profileSection.style.display = '';
+                 } else if (list[i].querySelector('.title').textContent.trim() === 'Help') {
+                     helpSection.style.display = '';
+                 } else if (list[i].querySelector('.title').textContent.trim() === 'Favorite') {
+                     favoriteSection.style.display = '';
+                 } else if (list[i].querySelector('.title').textContent.trim() === 'Password') {
+                     passwordSection.style.display = '';
+                 } else if (list[i].querySelector('.title').textContent.trim() === 'Sign out') {
+                     signoutSection.style.display = '';
+                 }
             }
         }
 
-        // Xóa code chuyển vai trò sinh viên/quản trị viên
+      
 
-        // Mặc định chỉ hiện Home khi vào trang
+        // Mặc định hiện Home khi vào trang và kích hoạt tab Home
         window.onload = function() {
-            document.querySelector('.list .title').click();
+            // Kích hoạt tab Home
+            const homeTab = document.querySelector('.list');
+            homeTab.className = 'list active';
+            
+            // Hiển thị nội dung Home
+            const homeSection = document.getElementById('homeSection');
+            homeSection.style.display = '';
+            
+                         // Ẩn các section khác
+             const profileSection = document.getElementById('profileSection');
+             const helpSection = document.getElementById('helpSection');
+             const favoriteSection = document.getElementById('favoriteSection');
+             const passwordSection = document.getElementById('passwordSection');
+             const signoutSection = document.getElementById('signoutSection');
+             
+             profileSection.style.display = 'none';
+             helpSection.style.display = 'none';
+             favoriteSection.style.display = 'none';
+             passwordSection.style.display = 'none';
+             signoutSection.style.display = 'none';
         };
 
         // Toggle password visibility
@@ -425,14 +672,33 @@
 
         // Sign out confirmation
         function confirmSignout() {
-            alert('Đăng xuất thành công!');
-            // Redirect to login page or clear session
-            window.location.href = 'login.html'; // Assuming login.html is the correct path
+            if (confirm('Bạn có chắc chắn muốn đăng xuất?')) {
+                alert('✅ Đăng xuất thành công!\n\nCảm ơn bạn đã sử dụng hệ thống quản lý thư viện PIIT.');
+                
+                // Chuyển về trang đăng nhập ở thư mục Web
+                window.location.href = '../../Web/index.html';
+            }
         }
 
-        function cancelSignout() {
-            document.getElementById('signoutSection').style.display = 'none';
-        }
+                 function cancelSignout() {
+             document.getElementById('signoutSection').style.display = 'none';
+         }
+
+         // Toggle FAQ function
+         function toggleFAQ(element) {
+             const content = element.querySelector('div:last-child');
+             const icon = element.querySelector('span:last-child');
+             
+             if (content.style.maxHeight === '0px' || content.style.maxHeight === '') {
+                 content.style.maxHeight = content.scrollHeight + 'px';
+                 icon.textContent = '−';
+                 icon.style.transform = 'rotate(180deg)';
+             } else {
+                 content.style.maxHeight = '0px';
+                 icon.textContent = '+';
+                 icon.style.transform = 'rotate(0deg)';
+             }
+         }
     </script>
 </body>
 

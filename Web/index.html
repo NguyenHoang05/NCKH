@@ -72,9 +72,23 @@
                     <i class='bx bxs-envelope' ></i>
                 </div>
                 <div class="input-box">
+                                <!-- Ô nhập ID sinh viên -->
+                    <input type="text" placeholder="ID Sinh viên" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
                                     <!-- Ô nhập mật khẩu  -->
                     <input type="password" placeholder="Mật khẩu" required>
                     <i class='bx bxs-lock-alt' ></i>
+                </div>
+                 <div class="input-box">
+                    <!-- Ô chọn vai trò -->
+                    <select id="roleSelect" required>
+                        <option value="">Chọn vai trò</option>
+                        <option value="student">Sinh viên</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <i class='bx bxs-user-detail'></i>
                 </div>
                                 <!-- Nút đăng ký-->
                 <button type="submit" class="btn">Đăng ký</button>

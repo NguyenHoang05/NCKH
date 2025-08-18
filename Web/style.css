@@ -50,9 +50,10 @@ form{ width: 100%; }
     align-items: center;
     color: #333;
     text-align: center;
-    padding: 40px;
+    padding: 28px;
     z-index: 1;
     transition: .6s ease-in-out 1.2s, visibility 0s 1s;
+    overflow-y: auto;
 }
 
     .container.active .form-box{ right: 50%; }
@@ -60,14 +61,20 @@ form{ width: 100%; }
     .form-box.register{ visibility: hidden; }
         .container.active .form-box.register{ visibility: visible; }
 
+    /* Compact heading for register form to avoid overflow */
+    .form-box.register h1{
+        font-size: 28px;
+        margin: 0 0 10px;
+    }
+
 .input-box{
     position: relative;
-    margin: 20px 0;
+    margin: 12px 0;
 }
 
     .input-box input{
         width: 100%;
-        padding: 13px 50px 13px 20px;
+        padding: 11px 44px 11px 16px;
         background: #eee;
         border-radius: 8px;
         border: none;
@@ -92,7 +99,7 @@ form{ width: 100%; }
     
     .input-box select{
         width: 100%;
-        padding: 13px 50px 13px 20px;
+        padding: 11px 44px 11px 16px;
         background: #eee;
         border-radius: 8px;
         border: none;
@@ -124,7 +131,7 @@ form{ width: 100%; }
 
 .btn{
     width: 100%;
-    height: 48px;
+    height: 44px;
     background: #7494ec;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
@@ -257,7 +264,6 @@ form{ width: 100%; }
 
             .container.active .toggle-panel.toggle-right{ bottom: 0; }
 }
-ư
 @media screen and (max-width: 400px){
     .form-box { padding: 20px; }
 

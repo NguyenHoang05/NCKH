@@ -12,7 +12,7 @@
     <div class="navigation">
         <ul>
             <!-- Các mục trong thanh điều hướng -->
-                        <li class="list">
+                        <li class="list active">
                 <a href="#">
                     <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                     <span class="title">Home</span>
@@ -56,9 +56,9 @@
     <div id="mainContent">
         <!-- Khu vực nội dung chính -->
         <!-- Phần giao diện Home: Dashboard quản lý -->
-        <div id="homeSection" style="display:none">
+        <div id="homeSection" style="display:block">
             <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
-                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">QUẢN LÝ THƯ VIỆN PIIT</h2>
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">QUẢN LÝ THƯ VIỆN PTIT</h2>
             </div>
             
             <div style="display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
@@ -122,7 +122,7 @@
                     <thead>
                         <tr style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;">
                             <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên</th>
-                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">MSSV</th>
+                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID Sinh Viên</th>
                             <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Gmail</th>
                             <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên Sách</th>
                             <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID</th>
@@ -291,13 +291,18 @@
                     </div>
                     
                     <div style="margin-bottom:15px;">
-                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">MSSV:</label>
-                        <input type="text" id="studentId" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập mã số sinh viên">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">ID Sinh Viên:</label>
+                        <input type="text" id="studentId" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập ID sinh viên">
                     </div>
                     
                     <div style="margin-bottom:15px;">
                         <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">ID Sách:</label>
                         <input type="text" id="bookId" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập ID sách">
+                    </div>
+
+                    <div style="margin-bottom:15px;">
+                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Tên Sách:</label>
+                        <input type="text" id="bookNameBorrow" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập tên sách">
                     </div>
                     
                     <div style="margin-bottom:15px;">
@@ -356,21 +361,7 @@
                         <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Vị Trí Tủ:</label>
                         <input type="text" id="bookShelf" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'" placeholder="Nhập vị trí tủ sách">
                     </div>
-                    
-                    <div style="margin-bottom:20px;">
-                        <label style="display:block;margin-bottom:5px;color:#333;font-weight:500;font-size:0.9rem;">Thuộc Dạng Văn Học:</label>
-                        <select id="bookType" required style="width:100%;padding:8px 12px;border:2px solid #e1e5e9;border-radius:8px;font-size:0.9rem;transition:all 0.3s;box-sizing:border-box;background:white;" onfocus="this.style.borderColor='#B20000';this.style.boxShadow='0 0 0 3px rgba(178,0,0,0.1)'" onblur="this.style.borderColor='#e1e5e9';this.style.boxShadow='none'">
-                            <option value="">Chọn loại văn học</option>
-                            <option value="Tiểu thuyết">Tiểu thuyết</option>
-                            <option value="Truyện ngắn">Truyện ngắn</option>
-                            <option value="Thơ">Thơ</option>
-                            <option value="Kịch">Kịch</option>
-                            <option value="Truyện cổ tích">Truyện cổ tích</option>
-                            <option value="Truyện dân gian">Truyện dân gian</option>
-                            <option value="Khác">Khác</option>
-                        </select>
-                    </div>
-                    
+                     
                     <!-- Nút Submit -->
                     <div style="text-align:right;">
                         <button type="submit" style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;padding:8px 20px;border-radius:8px;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.3s;box-shadow:0 3px 10px rgba(178,0,0,0.3);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 5px 15px rgba(178,0,0,0.4)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 3px 10px rgba(178,0,0,0.3)'">Submit</button>
@@ -454,6 +445,75 @@
                             </button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Phần trợ giúp (Help) -->
+        <div id="helpSection" style="display:none">
+            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:30px;">
+                <h2 style="color:#1a1a1a;text-align:center;font-size:2rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">TRỢ GIÚP</h2>
+            </div>
+            
+            <!-- Giao diện trợ giúp -->
+            <div style="display:flex;justify-content:center;align-items:center;min-height:50vh;">
+                <div style="background:linear-gradient(135deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:blur(15px);border-radius:16px;padding:30px;min-width:350px;max-width:600px;box-shadow:0 15px 45px rgba(0,0,0,0.1);border:2px solid rgba(255,255,255,0.3);transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;text-align:center;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 15px 45px rgba(0,0,0,0.1)'">
+                    <!-- Shimmer effect -->
+                    <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(45deg,transparent,rgba(178,0,0,0.05),transparent);transform:translateX(-100%);transition:transform 0.6s ease;" onmouseover="this.style.transform='translateX(100%)'"></div>
+                    
+                    <!-- Icon trợ giúp -->
+                    <div style="width:70px;height:70px;background:linear-gradient(135deg,#B20000,#D32F2F);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 8px 24px rgba(178,0,0,0.3);position:relative;z-index:1;">
+                        <ion-icon name="help-circle-outline" style="font-size:2.2rem;color:white;"></ion-icon>
+                    </div>
+                    
+                    <!-- Thông tin trợ giúp -->
+                    <div style="margin-bottom:20px;position:relative;z-index:1;">
+                        <h3 style="color:#1a1a1a;font-size:1.3rem;font-weight:600;margin-bottom:8px;">Hướng dẫn sử dụng</h3>
+                        <p style="color:#666;font-size:0.9rem;margin-bottom:6px;">Hệ thống quản lý thư viện PIIT</p>
+                    </div>
+                    
+                    <!-- Danh sách hướng dẫn -->
+                    <div style="text-align:left;position:relative;z-index:1;">
+                        <div style="background:rgba(76,175,80,0.1);border:2px solid rgba(76,175,80,0.3);border-radius:10px;padding:15px;margin-bottom:15px;">
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                <ion-icon name="book-outline" style="color:#4CAF50;font-size:1.2rem;"></ion-icon>
+                                <span style="color:#4CAF50;font-weight:600;font-size:1rem;">Mượn sách</span>
+                            </div>
+                            <p style="color:#666;font-size:0.85rem;line-height:1.4;margin:0;">
+                                Click vào card "Mượn Sách" trên trang Home để thêm thông tin mượn sách mới.
+                            </p>
+                        </div>
+                        
+                        <div style="background:rgba(255,152,0,0.1);border:2px solid rgba(255,152,0,0.3);border-radius:10px;padding:15px;margin-bottom:15px;">
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                <ion-icon name="return-down-back-outline" style="color:#FF9800;font-size:1.2rem;"></ion-icon>
+                                <span style="color:#FF9800;font-weight:600;font-size:1rem;">Trả sách</span>
+                            </div>
+                            <p style="color:#666;font-size:0.85rem;line-height:1.4;margin:0;">
+                                Click vào card "Trả Sách" để xem danh sách sách đang mượn và xử lý trả sách.
+                            </p>
+                        </div>
+                        
+                        <div style="background:rgba(33,150,243,0.1);border:2px solid rgba(33,150,243,0.3);border-radius:10px;padding:15px;margin-bottom:15px;">
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                <ion-icon name="add-circle-outline" style="color:#2196F3;font-size:1.2rem;"></ion-icon>
+                                <span style="color:#2196F3;font-weight:600;font-size:1rem;">Thêm sách</span>
+                            </div>
+                            <p style="color:#666;font-size:0.85rem;line-height:1.4;margin:0;">
+                                Click vào card "Thêm Sách" để thêm sách mới vào thư viện.
+                            </p>
+                        </div>
+                        
+                        <div style="background:rgba(178,0,0,0.1);border:2px solid rgba(178,0,0,0.3);border-radius:10px;padding:15px;">
+                            <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                                <ion-icon name="analytics-outline" style="color:#B20000;font-size:1.2rem;"></ion-icon>
+                                <span style="color:#B20000;font-weight:600;font-size:1rem;">Thống kê</span>
+                            </div>
+                            <p style="color:#666;font-size:0.85rem;line-height:1.4;margin:0;">
+                                Sử dụng tab "Analysis" để xem thống kê chi tiết về sách và hoạt động thư viện.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -553,8 +613,7 @@
                         <thead>
                             <tr style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;">
                                 <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên</th>
-                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">MSSV</th>
-                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Gmail</th>
+                                <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID Sinh Viên</th>
                                 <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên Sách</th>
                                 <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID</th>
                                 <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Ngày Mượn</th>
@@ -567,7 +626,6 @@
                             <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Nguyễn Văn A</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021001</td>
-                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">nguyenvana@gmail.com</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lập trình C++ cơ bản</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK001</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">01/12/2024</td>
@@ -580,7 +638,6 @@
                             <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Trần Thị B</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021002</td>
-                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">tranthib@gmail.com</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Giải tích 1</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK002</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">05/12/2024</td>
@@ -593,7 +650,6 @@
                             <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Lê Văn C</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">2021003</td>
-                                <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">levanc@gmail.com</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Tôi thấy hoa vàng trên cỏ xanh</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK003</td>
                                 <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">10/12/2024</td>
@@ -621,45 +677,59 @@
                     list[j++].className = 'list';
                 }
                 list[i].className = 'list active';
-                // Hiển thị nội dung Home nếu click vào Home, ẩn nếu click mục khác
-                const homeSection = document.getElementById('homeSection');
-                const analysisSection = document.getElementById('analysisSection');
-                if (list[i].querySelector('.title').textContent.trim() === 'Home') {
-                    homeSection.style.display = '';
-                    analysisSection.style.display = 'none';
-                } else if (list[i].querySelector('.title').textContent.trim() === 'Analysis') {
-                    homeSection.style.display = 'none';
-                    analysisSection.style.display = '';
-                } else {
-                    homeSection.style.display = 'none';
-                    analysisSection.style.display = 'none';
+                
+                // Hiển thị nội dung tương ứng với tab được chọn
+                const title = list[i].querySelector('.title').textContent.trim();
+                if (title === 'Home') {
+                    showSection('homeSection');
+                } else if (title === 'List') {
+                    showSection('listSection');
+                } else if (title === 'Analysis') {
+                    showSection('analysisSection');
+                } else if (title === 'Help') {
+                    showSection('helpSection');
+                } else if (title === 'Password') {
+                    showSection('passwordSection');
+                } else if (title === 'Sign out') {
+                    showSection('signoutSection');
                 }
             }
         }
 
-        // Switch between student and admin view
+        // Switch between student and admin view (guard if controls exist)
         const studentBtn = document.getElementById('studentBtn');
         const adminBtn = document.getElementById('adminBtn');
         const studentView = document.getElementById('studentView');
         const adminView = document.getElementById('adminView');
 
-        studentBtn.onclick = function() {
-            studentBtn.classList.add('active');
-            adminBtn.classList.remove('active');
-            studentView.style.display = '';
-            adminView.style.display = 'none';
-        };
-        adminBtn.onclick = function() {
-            adminBtn.classList.add('active');
-            studentBtn.classList.remove('active');
-            adminView.style.display = '';
-            studentView.style.display = 'none';
-        };
+        if (studentBtn && adminBtn && studentView && adminView) {
+            studentBtn.onclick = function() {
+                studentBtn.classList.add('active');
+                adminBtn.classList.remove('active');
+                studentView.style.display = '';
+                adminView.style.display = 'none';
+            };
+            adminBtn.onclick = function() {
+                adminBtn.classList.add('active');
+                studentBtn.classList.remove('active');
+                adminView.style.display = '';
+                studentView.style.display = 'none';
+            };
+        }
 
-        // Mặc định chỉ hiện Home khi vào trang
-        window.onload = function() {
-            document.querySelector('.list .title').click();
-        };
+        // Mặc định hiện Home khi vào trang và kích hoạt tab Home
+        window.addEventListener('DOMContentLoaded', function() {
+            const homeTab = document.querySelector('.list');
+            if (homeTab) homeTab.className = 'list active';
+
+            // Đảm bảo chỉ Home hiển thị mặc định
+            const sections = ['homeSection','listSection','analysisSection','helpSection','passwordSection','signoutSection'];
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.style.display = (id === 'homeSection') ? 'block' : 'none';
+            });
+        });
 
         // Hàm hiển thị form mượn sách
         function showBorrowForm() {
@@ -690,12 +760,13 @@
                 studentName: document.getElementById('studentName').value,
                 studentId: document.getElementById('studentId').value,
                 bookId: document.getElementById('bookId').value,
+                bookName: document.getElementById('bookNameBorrow').value,
                 borrowDate: document.getElementById('borrowDate').value,
                 returnDate: document.getElementById('returnDate').value
             };
             
             // Hiển thị thông báo thành công
-            alert('Đã mượn sách thành công!\n\nThông tin mượn sách:\n- Tên: ' + formData.studentName + '\n- MSSV: ' + formData.studentId + '\n- ID Sách: ' + formData.bookId + '\n- Ngày mượn: ' + formData.borrowDate + '\n- Ngày trả: ' + formData.returnDate);
+            alert('Đã mượn sách thành công!\n\nThông tin mượn sách:\n- Tên: ' + formData.studentName + '\n- ID Sinh Viên: ' + formData.studentId + '\n- ID Sách: ' + formData.bookId + '\n- Tên Sách: ' + formData.bookName + '\n- Ngày mượn: ' + formData.borrowDate + '\n- Ngày trả: ' + formData.returnDate);
             
             // Đóng form
             closeBorrowForm();
@@ -781,6 +852,7 @@
             document.getElementById('homeSection').style.display = 'none';
             document.getElementById('listSection').style.display = 'none';
             document.getElementById('analysisSection').style.display = 'none';
+            document.getElementById('helpSection').style.display = 'none';
             document.getElementById('passwordSection').style.display = 'none';
             document.getElementById('signoutSection').style.display = 'none';
             
@@ -828,8 +900,8 @@
                 setTimeout(() => {
                     alert('✅ Đăng xuất thành công!\n\nCảm ơn bạn đã sử dụng hệ thống quản lý thư viện PIIT.');
                     
-                    // Chuyển về trang đăng nhập (giả lập)
-                    window.location.href = '../index.html';
+                    // Chuyển về trang đăng nhập ở thư mục Web
+                    window.location.href = '../../Web/index.html';
                 }, 2000);
             }
         }
