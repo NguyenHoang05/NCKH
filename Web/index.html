@@ -18,17 +18,17 @@
                 <h1>Đăng Nhập</h1>
                 <!-- Ô nhập tên đăng nhập -->
                 <div class="input-box">
-                    <input type="text" placeholder="Tên đăng nhập" required>
+                    <input type="text" placeholder="Tên đăng nhập" id='gmail1' required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box">
                     <!-- Ô nhập mật khẩu -->
-                    <input type="password" placeholder="Mật khẩu" required>
+                    <input type="password" placeholder="Mật khẩu" id='pass1' required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
                 <div class="input-box">
                     <!-- Ô chọn vai trò -->
-                    <select id="roleSelect" required>
+                    <select id="roleSelectlogin" required>
                         <option value="">Chọn vai trò</option>
                         <option value="student">Sinh viên</option>
                         <option value="admin">Admin</option>
@@ -52,75 +52,82 @@
             </form>
         </div>
 
-        <div class="form-box register">
-            <form action="#">
-                        <!-- Form Đăng Ký -->
-                <h1>Đăng ký tài khoản</h1>
-                <div class="input-box">
-                                    <!-- Ô nhập họ tên -->
-                    <input type="text" placeholder="Họ & tên" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box">
-                                <!-- Ô nhập tên đăng nhập -->
-                    <input type="text" placeholder="MSSV" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box">
-                                    <!-- Ô nhập email -->
-                    <input type="email" placeholder="Email" required>
-                    <i class='bx bxs-envelope' ></i>
-                </div>
-                <div class="input-box">
-                                <!-- Ô nhập ID sinh viên -->
-                    <input type="text" placeholder="ID Sinh viên" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box">
-                                    <!-- Ô nhập mật khẩu  -->
-                    <input type="password" placeholder="Mật khẩu" required>
-                    <i class='bx bxs-lock-alt' ></i>
-                </div>
-                 <div class="input-box">
-                    <!-- Ô chọn vai trò -->
-                    <select id="roleSelect" required>
-                        <option value="">Chọn vai trò</option>
-                        <option value="student">Sinh viên</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                    <i class='bx bxs-user-detail'></i>
-                </div>
-                                <!-- Nút đăng ký-->
-                <button type="submit" class="btn">Đăng ký</button>
-                <p>Hoặc đăng ký với các nền tảng mạng xã hội</p>
-                                <!-- Các icon mạng xã hội -->
-                <div class="social-icons">
-                    <a href="#"><i class='bx bxl-google' ></i></a>
-                    <a href="#"><i class='bx bxl-facebook' ></i></a>
-                    <a href="#"><i class='bx bxl-github' ></i></a>
-                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
-                </div>
-            </form>
-        </div>
-        <!-- Hộp chuyển đổi giữa đăng nhập và đăng ký -->
+  <div class="form-box register">
+  <form id="registerForm">
+    <h1>Đăng ký tài khoản</h1>
 
-        <div class="toggle-box">
-                        <!-- Panel bên trái: chuyển sang đăng ký -->
-            <div class="toggle-panel toggle-left">
-                <h1> Trang quản lý thư viện</h1>
-                <p>Bạn chưa có tài khoản?</p>
-                <button class="btn register-btn">Đăng ký</button>
-            </div>
-            <!-- Panel bên phải: chuyển sang đăng nhập -->
-
-            <div class="toggle-panel toggle-right">
-                <h1>Chào mừng bạn trở lại</h1>
-                <p>Bạn đã có tài khoản?</p>
-                <button class="btn login-btn">Đăng nhập</button>
-            </div>
-        </div>
+    <!-- Ô nhập họ tên -->
+    <div class="input-box">
+      <input type="text" id="name2" placeholder="Họ & tên" required>
+      <i class='bx bxs-user'></i>
     </div>
-        <!-- Link đến file JS để xử lý chuyển đổi form -->
-    <script src="main.js"></script>
+
+    <!-- Ô nhập MSSV -->
+    <div class="input-box">
+      <input type="text" id="mssv2" placeholder="MSSV" required>
+      <i class='bx bxs-user'></i>
+    </div>
+
+    <!-- Ô nhập email -->
+    <div class="input-box">
+      <input type="email" id="email2" placeholder="Email" required>
+      <i class='bx bxs-envelope'></i>
+    </div>
+
+    <!-- Ô nhập ID sinh viên -->
+    <div class="input-box">
+      <input type="text" id="idname" placeholder="ID Sinh viên" required>
+      <i class='bx bxs-user'></i>
+    </div>
+
+    <!-- Ô nhập mật khẩu -->
+    <div class="input-box">
+      <input type="password" id="pass2" placeholder="Mật khẩu" required>
+      <i class='bx bxs-lock-alt'></i>
+    </div>
+
+    <!-- Ô chọn vai trò -->
+    <div class="input-box">
+      <select id="roleSelectregister" required>
+        <option value="">Chọn vai trò</option>
+        <option value="student">Sinh viên</option>
+        <option value="admin">Admin</option>
+      </select>
+      <i class='bx bxs-user-detail'></i>
+    </div>
+
+    <!-- Nút đăng ký -->
+    <button type="submit" id="registersubmit" class="btn">Đăng ký</button>
+    <p>Hoặc đăng ký với các nền tảng mạng xã hội</p>
+
+    <!-- Các icon mạng xã hội -->
+    <div class="social-icons">
+      <a href="#"><i class='bx bxl-google'></i></a>
+      <a href="#"><i class='bx bxl-facebook'></i></a>
+      <a href="#"><i class='bx bxl-github'></i></a>
+      <a href="#"><i class='bx bxl-linkedin'></i></a>
+    </div>
+  </form>
+</div>
+
+<!-- Hộp chuyển đổi giữa đăng nhập và đăng ký -->
+<div class="toggle-box">
+  <div class="toggle-panel toggle-left">
+    <h1>Trang quản lý thư viện</h1>
+    <p>Bạn chưa có tài khoản?</p>
+    <button class="btn register-btn">Đăng ký</button>
+  </div>
+  <div class="toggle-panel toggle-right">
+    <h1>Chào mừng bạn trở lại</h1>
+    <p>Bạn đã có tài khoản?</p>
+    <button class="btn login-btn">Đăng nhập</button>
+  </div>
+</div>
+
+<!-- Link đến JS -->
+<script src="main.js"></script>
+<!-- Chú ý: Đặt đúng đường dẫn register.js trong thư mục firebase -->
+<script type="module" src="./firebase/register.js"></script>
+<script type="module" src="./firebase/login.js"></script>
 </body>
 </html>
