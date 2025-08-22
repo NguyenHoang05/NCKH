@@ -1,9 +1,9 @@
 
 console.log("✅ addbook.js loaded");
 // addbook.js
-import { db } from './firebase.js';
+import { db,rtdb } from './firebase.js';
 import { setDoc, doc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-
+import { ref, set } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js"; // import realtime
 window.submitAddBookForm = async function (event) {
   event.preventDefault();
 
@@ -21,6 +21,14 @@ window.submitAddBookForm = async function (event) {
     shelfLocation: shelf,
     createdAt: new Date().toISOString()
 });
+ // 2️⃣ Lưu vào Realtime Database
+    await set(ref(rtdb, "books/" + id), {
+      title: name,
+      author: author,
+      genre: genre,
+      shelfLocation: shelf,
+      createdAt: new Date().toISOString()
+    });
 
     alert("✅ Thêm sách thành công!");
     document.getElementById("addBookForm").reset();
