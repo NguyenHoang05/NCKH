@@ -116,43 +116,37 @@
             </div>
         </div>
         
-        <!-- Phần danh sách (List - chỉ sách đang còn) -->
-        <div id="listSection" style="display:none">
-            <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
-                <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">Danh Sách Sách Còn</h2>
-            </div>
-            
-            <!-- Bảng danh sách sách còn -->
-            <div style="background:white;border-radius:16px;padding:25px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);overflow-x:auto;">
-                <table id="availableBooksTable" style="width:100%;border-collapse:collapse;border:1px solid #ddd;background:white;">
-                    <thead>
-                        <tr style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;">
-                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên Sách</th>
-                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID</th>
-                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tác giả</th>
-                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Thể loại</th>
-                            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Giải tích 1</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK010</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Nguyễn A</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Giáo trình</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#4caf50;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Còn</span></td>
-                        </tr>
-                        <tr style="border-bottom:1px solid #ddd;" onmouseover="this.style.backgroundColor='#f8f9fa'" onmouseout="this.style.backgroundColor='white'">
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Cấu trúc dữ liệu</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">BK011</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Trần B</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;">Giáo trình</td>
-                            <td style="padding:10px 8px;border:1px solid #ddd;font-size:0.85rem;"><span style="background:#4caf50;color:white;padding:2px 8px;border-radius:4px;font-size:0.8rem;">Còn</span></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+       <!-- Phần danh sách (List - chỉ sách đang còn) -->
+  <div id="listSection">
+    <div style="display:flex;justify-content:center;align-items:center;margin-bottom:40px;">
+      <h2 style="color:#1a1a1a;text-align:center;font-size:2.5rem;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.1);letter-spacing:-0.5px;">Danh Sách Sách Còn</h2>
+    </div>
+    
+    <!-- Bảng danh sách sách còn -->
+    <div style="background:white;border-radius:16px;padding:25px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);overflow-x:auto;">
+      <table id="availableBooksTable" style="width:100%;border-collapse:collapse;border:1px solid #ddd;background:white;">
+        <thead>
+          <tr style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;">
+            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tên Sách</th>
+            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">ID</th>
+            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Tác giả</th>
+            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Thể loại</th>
+            <th style="padding:12px 8px;text-align:left;border:1px solid #ddd;font-size:0.9rem;font-weight:600;">Trạng thái</th>
+          </tr>
+        </thead>
+
+        <!-- Nơi dữ liệu Firebase sẽ render -->
+        <tbody id="booksBody">
+          <!-- Dữ liệu sẽ được load bằng JS -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Link file JS riêng -->
+  <script type="module" src="../../Web/firebase/listbook.js"></script>
+</body>
+</html>
 
         <!-- Phần lịch sử mượn trả (History) -->
         <div id="historySection" style="display:none">
