@@ -1,72 +1,80 @@
-console.log("✅ borrow.js loaded");
+console.log("✅ returnBook.js loaded");
 
+// Import config firebase
 import { db, rtdb } from './firebase.js';
-import { doc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-import { ref, set, update } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+import { ref, update, onValue } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
+import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
 // Hàm đóng modal
-window.closeBorrowForm = function () {
-  document.getElementById("borrowModal").style.display = "none";
+window.closeReturnBookForm = function () {
+  document.getElementById("returnBookModal").style.display = "none";
 }
 
-// Hàm mở modal
-window.openBorrowForm = function () {
-  document.getElementById("borrowModal").style.display = "flex";
+// Hàm mở modal + load danh sách
+window.openReturnBookForm = function () {
+  document.getElementById("returnBookModal").style.display = "flex";
+  loadReturnBookList();
 }
 
-// Hàm submit form mượn sách
-window.submitBorrowForm = async function (event) {
-  event.preventDefault();
+// Load danh sách sách đang mượn từ history (Realtime DB)
+function loadReturnBookList() {
+  const tableBody = document.querySelector("#returnBookModal tbody");
+  const historyRef = ref(rtdb, "history");
 
-  const studentName = document.getElementById("studentName").value.trim();
-  const studentId = document.getElementById("studentId").value.trim();
-  const bookId = document.getElementById("bookId").value.trim();
-  const bookName = document.getElementById("bookNameBorrow").value.trim();
-  const borrowDate = document.getElementById("borrowDate").value;
-  const returnDate = document.getElementById("returnDate").value;
+  onValue(historyRef, (snapshot) => {
+    tableBody.innerHTML = "";
+    snapshot.forEach((childSnap) => {
+      const history = childSnap.val();
+      const historyId = childSnap.key;
 
-  if (!studentName || !studentId || !bookId || !bookName || !borrowDate || !returnDate) {
-    alert("⚠️ Vui lòng nhập đầy đủ thông tin!");
-    return;
-  }
+      // Chỉ render sách đang mượn
+      if (history.status === "Đang mượn") {
+        const row = `
+          <tr style="border-bottom:1px solid #ddd;">
+            <td style="padding:10px 8px;border:1px solid #ddd;">${history.studentName || ""}</td>
+            <td style="padding:10px 8px;border:1px solid #ddd;">${history.studentId || ""}</td>
+            <td style="padding:10px 8px;border:1px solid #ddd;">${history.bookName || ""}</td>
+            <td style="padding:10px 8px;border:1px solid #ddd;">${history.bookId || ""}</td>
+            <td style="padding:10px 8px;border:1px solid #ddd;">${history.borrowDate || ""}</td>
+            <td style="padding:10px 8px;border:1px solid #ddd;">${history.returnDate || ""}</td>
+            <td style="padding:10px 8px;border:1px solid #ddd;">
+              <span style="background:#ff9800;color:white;padding:2px 8px;border-radius:4px;">${history.status}</span>
+            </td>
+            <td style="padding:10px 8px;border:1px solid #ddd;text-align:center;">
+              <button onclick="returnBook('${historyId}', '${history.bookId}')" 
+                style="background:linear-gradient(135deg,#B20000,#D32F2F);color:white;border:none;
+                padding:6px 12px;border-radius:6px;font-size:0.8rem;cursor:pointer;">
+                Trả sách
+              </button>
+            </td>
+          </tr>
+        `;
+        tableBody.innerHTML += row;
+      }
+    });
+  });
+}
 
+// Hàm trả sách
+window.returnBook = async function (historyId, bookId) {
   try {
-    const historyId = `${studentId}_${bookId}_${Date.now()}`;
+    const today = new Date().toISOString().split("T")[0]; // yyyy-mm-dd
 
-    // 1️⃣ Lưu vào Firestore
-    await setDoc(doc(db, "history", historyId), {
-      studentName,
-      studentId,
-      bookId,
-      bookName,
-      borrowDate,
-      returnDate,
-      status: "Đang mượn",
-      createdAt: new Date().toISOString()
+    // 1️⃣ Update history -> Đã trả + ngày thực trả
+    await update(ref(rtdb, "history/" + historyId), { 
+      status: "Đã trả",
+      actualReturnDate: today
     });
 
-    // 2️⃣ Lưu vào Realtime Database
-    await set(ref(rtdb, "history/" + historyId), {
-      studentName,
-      studentId,
-      bookId,
-      bookName,
-      borrowDate,
-      returnDate,
-      status: "Đang mượn",
-      createdAt: new Date().toISOString()
-    });
+    // 2️⃣ Update books -> Còn (Realtime DB)
+    await update(ref(rtdb, "books/" + bookId), { status: "Còn" });
 
-    // 3️⃣ Cập nhật trạng thái sách thành "Đã mượn"
-    await updateDoc(doc(db, "books", bookId), { status: "Đã mượn" });
-    await update(ref(rtdb, "books/" + bookId), { status: "Đã mượn" });
+    // 3️⃣ Update books -> Còn (Firestore)
+    await updateDoc(doc(db, "books", bookId), { status: "Còn" });
 
-    // ✅ Chỉ hiện thông báo đơn giản
-    alert("📚 Mượn sách thành công!");
-    closeBorrowForm();
-
+    alert("✅ Trả sách thành công!");
   } catch (error) {
-    console.error("❌ Lỗi khi mượn sách:", error);
-    alert("Không thể mượn sách: " + error.message);
+    console.error("❌ Lỗi khi trả sách:", error);
+    alert("Không thể trả sách: " + error.message);
   }
-};
+}
