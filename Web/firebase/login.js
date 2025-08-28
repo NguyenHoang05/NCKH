@@ -36,9 +36,13 @@ window.onload = function () {
 
                     if (userData.role === "admin") {
     window.location.href = "../Interface/Admin/index.html";
-} else if (userData.role === "student") {
+}  else if (userData.role === "student") {
+    // Lưu iduser để profile.js truy vấn DB
+    localStorage.setItem("iduser", userData.iduser);
+
     window.location.href = "../Interface/Student/index.html";
 }
+
 
                 } else {
                     alert("❌ Vai trò bạn chọn không khớp với tài khoản đã đăng ký!");
