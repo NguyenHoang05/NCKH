@@ -1,5 +1,5 @@
 import { rtdb } from './firebase.js';
-import { ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
+import { ref, onValue } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 // Hàm load lịch sử mượn trả
 window.loadHistory = function () {

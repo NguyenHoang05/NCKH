@@ -2,19 +2,15 @@ console.log("✅ returnBook.js loaded");
 
 // Import config firebase
 import { db, rtdb } from './firebase.js';
-import { ref, update, onValue } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
-import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { ref, update, onValue } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-database.js";
+import { doc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.0/firebase-firestore.js";
 
 // Hàm đóng modal
 window.closeReturnBookForm = function () {
   document.getElementById("returnBookModal").style.display = "none";
 }
 
-// Hàm mở modal + load danh sách
-window.openReturnBookForm = function () {
-  document.getElementById("returnBookModal").style.display = "flex";
-  loadReturnBookList();
-}
+
 
 // Load danh sách sách từ history (Realtime DB)
 function loadReturnBookList() {
@@ -23,6 +19,7 @@ function loadReturnBookList() {
 
   onValue(historyRef, (snapshot) => {
     tableBody.innerHTML = "";
+    console.log("🔥 Data snapshot:", snapshot.val());
     snapshot.forEach((childSnap) => {
       const history = childSnap.val();
       const historyId = childSnap.key;
@@ -30,12 +27,12 @@ function loadReturnBookList() {
       // Render tất cả sách (không lọc trạng thái)
       const row = `
         <tr style="border-bottom:1px solid #ddd;">
-          <td style="padding:10px 8px;border:1px solid #ddd;">${history.studentName || ""}</td>
-          <td style="padding:10px 8px;border:1px solid #ddd;">${history.studentId || ""}</td>
-          <td style="padding:10px 8px;border:1px solid #ddd;">${history.bookName || ""}</td>
-          <td style="padding:10px 8px;border:1px solid #ddd;">${history.bookId || ""}</td>
-          <td style="padding:10px 8px;border:1px solid #ddd;">${history.borrowDate || ""}</td>
-          <td style="padding:10px 8px;border:1px solid #ddd;">${history.returnDate || ""}</td>
+          <td style="padding:10px 8px;border:1px solid #ddd;">${history.studentName }</td>
+          <td style="padding:10px 8px;border:1px solid #ddd;">${history.studentId }</td>
+          <td style="padding:10px 8px;border:1px solid #ddd;">${history.bookName }</td>
+          <td style="padding:10px 8px;border:1px solid #ddd;">${history.bookId }</td>
+          <td style="padding:10px 8px;border:1px solid #ddd;">${history.borrowDate }</td>
+          <td style="padding:10px 8px;border:1px solid #ddd;">${history.returnDate }</td>
           <td style="padding:10px 8px;border:1px solid #ddd;">
             <span style="background:${history.status === "Đã trả" ? "#4CAF50" : "#ff9800"};
                          color:white;padding:2px 8px;border-radius:4px;">
@@ -61,6 +58,12 @@ function loadReturnBookList() {
   });
 }
 
+// Hàm mở modal + load danh sách
+window.openReturnBookForm = function () {
+  document.getElementById("returnBookModal").style.display = "flex";
+  loadReturnBookList();
+}
+
 // Hàm trả sách
 window.returnBook = async function (historyId, bookId) {
   try {
@@ -73,18 +76,19 @@ window.returnBook = async function (historyId, bookId) {
     });
 
     // 2️⃣ Update books -> Còn (Realtime DB)
-    await update(ref(rtdb, "books/" + bookId), { status: "Còn" });
+    const bookRefRTDB = ref(rtdb, "books/" + bookId);
+    await update(bookRefRTDB, { status: "Còn" });
 
     // 3️⃣ Update books -> Còn (Firestore)
-    await updateDoc(doc(db, "books", bookId), { status: "Còn" });
+    const bookRefFS = doc(db, "books", bookId);
+    await updateDoc(bookRefFS, { status: "Còn" });
 
     alert("✅ Trả sách thành công!");
   } catch (error) {
     console.error("❌ Lỗi khi trả sách:", error);
     alert("Không thể trả sách: " + error.message);
   }
-}
-
+};
 // ⬇️ Auto load nếu modal đang mở sẵn
 if (document.getElementById("returnBookModal").style.display === "flex") {
   loadReturnBookList();

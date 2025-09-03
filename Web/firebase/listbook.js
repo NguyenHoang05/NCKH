@@ -16,7 +16,7 @@ async function loadBooks() {
 
       // Chọn màu theo status
       let statusColor = "#4caf50"; // mặc định xanh (Còn)
-      if (status === "đã mượn") {
+      if (status === "Đã mượn") {
         statusColor = "#f44336"; // đỏ
       }
 

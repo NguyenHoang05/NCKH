@@ -31,7 +31,7 @@ window.submitBorrowForm = async function (event) {
   }
 
   try {
-    const historyId = `${studentId}_${bookId}`;
+    const historyId = `${studentId}_${bookId}_${borrowDate}`;
 
     // 1️⃣ Lưu vào Firestore
     await setDoc(doc(db, "history", historyId), {
