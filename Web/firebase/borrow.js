@@ -2,7 +2,7 @@ console.log("✅ borrow.js loaded");
 
 import { db, rtdb } from './firebase.js';
 import { doc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-import { ref, set, update } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+import { ref, set, update, onValue, remove } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 // Hàm đóng modal
 window.closeBorrowForm = function () {
@@ -12,6 +12,26 @@ window.closeBorrowForm = function () {
 // Hàm mở modal
 window.openBorrowForm = function () {
   document.getElementById("borrowModal").style.display = "flex";
+
+  // 🔥 Theo dõi realtime temp → tự điền form khi có thay đổi
+  const tempRef = ref(rtdb, "temp");
+  onValue(tempRef, (snapshot) => {
+    if (snapshot.exists()) {
+      const temp = snapshot.val();
+
+      // Lấy dữ liệu student
+      if (temp.student) {
+        document.getElementById("studentName").value = temp.student.username || "";
+        document.getElementById("studentId").value = temp.student.iduser || "";
+      }
+
+      // Lấy dữ liệu book
+      if (temp.book) {
+        document.getElementById("bookId").value = temp.book.id || "";
+        document.getElementById("bookNameBorrow").value = temp.book.title || "";
+      }
+    }
+  });
 }
 
 // Hàm submit form mượn sách
@@ -59,7 +79,7 @@ window.submitBorrowForm = async function (event) {
     });
     console.log("✅ Realtime DB ghi thành công!");
 
-    // 3️⃣ Update trạng thái sách (nếu tồn tại bookId trong books)
+    // 3️⃣ Update trạng thái sách (books)
     try {
       await updateDoc(doc(db, "books", bookId), { status: "Đã mượn" });
       await update(ref(rtdb, "books/" + bookId), { status: "Đã mượn" });
@@ -67,6 +87,10 @@ window.submitBorrowForm = async function (event) {
     } catch (err) {
       console.warn("⚠️ Không tìm thấy sách trong books để update!", err);
     }
+
+    // 4️⃣ Xóa temp để chuẩn bị cho lần quét mới
+    await remove(ref(rtdb, "temp"));
+    console.log("🗑️ Đã xóa temp sau khi mượn!");
 
     alert("📚 Mượn sách thành công!");
     document.getElementById("borrowForm").reset();

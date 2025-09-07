@@ -15,18 +15,22 @@ window.submitAddBookForm = async function (event) {
 
   try {
    await setDoc(doc(db, "books", id), {
+    id: id,
     title: name,
     author: author,
     genre: genre,
     shelfLocation: shelf,
+    status: "Còn",
     createdAt: new Date().toISOString()
 });
  // 2️⃣ Lưu vào Realtime Database
     await set(ref(rtdb, "books/" + id), {
+      id: id,
       title: name,
       author: author,
       genre: genre,
       shelfLocation: shelf,
+      status: "Còn",
       createdAt: new Date().toISOString()
     });
 
