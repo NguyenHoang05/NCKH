@@ -176,38 +176,54 @@
 <!-- import script -->
 <script type="module" src="../../Web/firebase/student/profile.js"></script>
 
+<!-- import script -->
+<script type="module" src="../../Web/firebase/student/borrowsd.js"></script>
 
-            <!-- Bảng sách đã mượn -->
-            <div style="background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border-radius:20px;padding:32px;box-shadow:0 8px 32px rgba(0,0,0,0.1);border:1px solid rgba(255,255,255,0.2);">
-                <h3 style="font-size:1.4rem;font-weight:600;color:#1a1a1a;margin-bottom:24px;">Sách đã mượn</h3>
-                <div style="overflow-x:auto;">
-                    <table style="width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,0.5);border-radius:12px;overflow:hidden;">
-                        <thead>
-                            <tr style="background:linear-gradient(135deg,#4d5bf9,#6a82fb);">
-                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Tên sách</th>
-                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Ngày mượn</th>
-                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Hạn trả</th>
-                                <th style="padding:16px 20px;text-align:left;color:white;font-weight:600;font-size:1rem;">Trạng thái</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr style="transition:background 0.2s;" onmouseover="this.style.background='rgba(77,91,249,0.05)'" onmouseout="this.style.background='transparent'">
-                                <td style="padding:16px 20px;color:#1a1a1a;font-weight:500;">Lập trình C++ cơ bản</td>
-                                <td style="padding:16px 20px;color:#666;">01/05/2024</td>
-                                <td style="padding:16px 20px;color:#666;">15/05/2024</td>
-                                <td style="padding:16px 20px;"><span style="background:#fef3c7;color:#92400e;padding:6px 12px;border-radius:20px;font-size:0.9rem;font-weight:500;">Đang mượn</span></td>
-                            </tr>
-                            <tr style="transition:background 0.2s;" onmouseover="this.style.background='rgba(77,91,249,0.05)'" onmouseout="this.style.background='transparent'">
-                                <td style="padding:16px 20px;color:#1a1a1a;font-weight:500;">Giải tích 1</td>
-                                <td style="padding:16px 20px;color:#666;">10/04/2024</td>
-                                <td style="padding:16px 20px;color:#666;">24/04/2024</td>
-                                <td style="padding:16px 20px;"><span style="background:#d1fae5;color:#065f46;padding:6px 12px;border-radius:20px;font-size:0.9rem;font-weight:500;">Đã trả</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+         <!-- Bảng sách đã mượn -->
+<div style="background:rgba(255,255,255,0.95);
+            backdrop-filter:blur(12px);
+            border-radius:20px;
+            padding:32px;
+            box-shadow:0 8px 32px rgba(0,0,0,0.15);
+            border:1px solid rgba(255,255,255,0.3);
+            max-width:1100px;   /* tăng chiều rộng để bằng với profile */
+            margin:40px auto;">
+  
+  <!-- Tiêu đề -->
+  <h3 style="font-size:1.6rem;
+             font-weight:700;
+             color:#1a1a1a;
+             margin-bottom:24px;
+             display:flex;
+             align-items:center;">
+    <span style="font-size:1.8rem;margin-right:8px;">📚</span> 
+    Sách đã mượn
+  </h3>
+
+  <!-- Bảng -->
+  <div style="overflow-x:auto;">
+    <table style="width:100%;
+                  border-collapse:separate;
+                  border-spacing:0;
+                  background:rgba(255,255,255,0.6);
+                  border-radius:14px;
+                  overflow:hidden;
+                  font-size:1rem;">
+      <thead>
+        <tr style="background:linear-gradient(135deg,#4d5bf9,#6a82fb);">
+          <th style="padding:18px 22px;text-align:left;color:white;font-weight:600;font-size:1rem;">Tên sách</th>
+          <th style="padding:18px 22px;text-align:left;color:white;font-weight:600;font-size:1rem;">Ngày mượn</th>
+          <th style="padding:18px 22px;text-align:left;color:white;font-weight:600;font-size:1rem;">Hạn trả</th>
+          <th style="padding:18px 22px;text-align:left;color:white;font-weight:600;font-size:1rem;">Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody id="borrowedBooksTableBody">
+        <!-- borrowsd.js sẽ load dữ liệu -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
         
     
         <!-- Phần giao diện Help (Trợ giúp) -->

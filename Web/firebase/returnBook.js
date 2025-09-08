@@ -108,8 +108,6 @@ window.returnBook = async function (historyId, rawBookId) {
       const historyRefFS = await getFSRefOrNull("history", historyId, "historyId");
       if (historyRefFS) {
         await updateDoc(historyRefFS, { status: "Đã trả", actualReturnDate: today });
-      } else {
-        console.warn("⚠️ Không tìm thấy history trên Firestore với id:", historyId);
       }
     } catch (e) {
       console.warn("⚠️ Update Firestore(history) lỗi:", e.message);
@@ -118,19 +116,30 @@ window.returnBook = async function (historyId, rawBookId) {
     // 3) RTDB: books -> Còn
     await update(ref(rtdb, `books/${bookId}`), { status: "Còn" });
 
-    // 4) Firestore: books -> Còn (nếu có)
+    // 4) Firestore: books -> Còn
     try {
       const bookRefFS = await getFSRefOrNull("books", bookId, "bookId");
       if (bookRefFS) {
         await updateDoc(bookRefFS, { status: "Còn" });
-      } else {
-        console.warn("⚠️ Không tìm thấy book trên Firestore với id:", bookId);
       }
     } catch (e) {
       console.warn("⚠️ Update Firestore(books) lỗi:", e.message);
     }
 
-    // 5) Cập nhật UI: xóa dòng
+    // 5) Firestore: users/{studentId}/books/{bookId} -> Đã trả
+    try {
+      // Tách studentId từ historyId (vì historyId = studentId_bookId_borrowDate)
+      const parts = historyId.split("_");
+      const studentId = parts[0];
+
+      const userBookRef = doc(db, "users", studentId, "books", bookId);
+      await updateDoc(userBookRef, { status: "Đã trả", actualReturnDate: today });
+      console.log("✅ Cập nhật user.books thành công!");
+    } catch (e) {
+      console.warn("⚠️ Update Firestore(user.books) lỗi:", e.message);
+    }
+
+    // 6) UI: xóa dòng
     const row = document.getElementById("row-" + historyId);
     if (row) row.remove();
 
@@ -140,3 +149,4 @@ window.returnBook = async function (historyId, rawBookId) {
     alert("Không thể trả sách: " + error.message);
   }
 };
+

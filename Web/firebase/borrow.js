@@ -2,7 +2,7 @@ console.log("✅ borrow.js loaded");
 
 import { db, rtdb } from './firebase.js';
 import { doc, setDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
-import { ref, set, update, onValue, remove } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
+import { ref, set, update, onValue, remove ,get } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-database.js";
 
 // Hàm đóng modal
 window.closeBorrowForm = function () {
@@ -51,32 +51,40 @@ window.submitBorrowForm = async function (event) {
   }
 
   try {
+    // 🔥 Lấy thêm dữ liệu từ temp (student + book)
+    const tempSnap = await get(ref(rtdb, "temp"));
+    let extraData = {};
+    if (tempSnap.exists()) {
+      const temp = tempSnap.val();
+      if (temp.student) {
+        extraData.mssv = temp.student.mssv || "";
+        extraData.email = temp.student.email || "";
+      }
+      if (temp.book) {
+        extraData.statusBook = temp.book.status || "Còn"; 
+      }
+    }
+
     const historyId = `${studentId}_${bookId}_${borrowDate}`;
 
-    // 1️⃣ Lưu vào Firestore
-    await setDoc(doc(db, "history", historyId), {
+    const historyData = {
       studentName,
       studentId,
       bookId,
       bookName,
       borrowDate,
       returnDate,
-      status: "Đang mượn",
-      createdAt: new Date()
-    });
+      status: "Đang mượn",      // trạng thái mượn
+      createdAt: new Date().toISOString(),
+      ...extraData              // gộp thêm mssv, email, statusBook
+    };
+
+    // 1️⃣ Lưu vào Firestore
+    await setDoc(doc(db, "history", historyId), historyData);
     console.log("✅ Firestore ghi thành công!");
 
-    // 2️⃣ Lưu vào Realtime Database
-    await set(ref(rtdb, "history/" + historyId), {
-      studentName,
-      studentId,
-      bookId,
-      bookName,
-      borrowDate,
-      returnDate,
-      status: "Đang mượn",
-      createdAt: new Date().toISOString()
-    });
+    // 2️⃣ Lưu vào Realtime DB
+    await set(ref(rtdb, "history/" + historyId), historyData);
     console.log("✅ Realtime DB ghi thành công!");
 
     // 3️⃣ Update trạng thái sách (books)
@@ -87,6 +95,19 @@ window.submitBorrowForm = async function (event) {
     } catch (err) {
       console.warn("⚠️ Không tìm thấy sách trong books để update!", err);
     }
+
+    // 🔥 4️⃣ Thêm sách vào nhánh books trong user (Firestore)
+try {
+  await setDoc(doc(db, "users", studentId, "books", bookId), {
+    bookName,
+    borrowDate,
+    returnDate,
+    status: "Đang mượn"
+  });
+  console.log("✅ Đã lưu sách vào user profile!");
+} catch (err) {
+  console.error("❌ Lỗi khi lưu vào user profile:", err);
+}
 
     // 4️⃣ Xóa temp để chuẩn bị cho lần quét mới
     await remove(ref(rtdb, "temp"));
@@ -101,3 +122,4 @@ window.submitBorrowForm = async function (event) {
     alert("Không thể mượn sách: " + error.message);
   }
 };
+

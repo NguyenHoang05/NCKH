@@ -33,5 +33,5 @@ async function loadStudentProfile() {
   }
 }
 
-// Gọi hàm khi load trang
-window.onload = loadStudentProfile;
+// 👉 Dùng addEventListener thay vì onload
+window.addEventListener("load", loadStudentProfile);
