@@ -1,37 +1,85 @@
+# 🚀 Hướng dẫn Setup Project NCKH_ESP-master (PlatformIO)
 
-This directory is intended for project header files.
+Làm theo các bước dưới đây để cài thư viện và build project thành công trên máy mới.
 
-A header file is a file containing C declarations and macro definitions
-to be shared between several project source files. You request the use of a
-header file in your project source file (C, C++, etc) located in `src` folder
-by including it, with the C preprocessing directive `#include'.
+---
 
-```src/main.c
+## 1️⃣ Mở project đúng cách
 
-#include "header.h"
+- Cài extension **PlatformIO IDE** trên VSCode  
+  (Ctrl + Shift + X → tìm "PlatformIO IDE" → Install → Reload VSCode).
+- Mở đúng thư mục gốc project:
+  - **File → Open Folder → chọn thư mục `NCKH_ESP-master`**
+  - Đảm bảo thấy file `platformio.ini` trong Explorer.
 
-int main (void)
-{
- ...
-}
+---
+
+## 2️⃣ Kiểm tra file `platformio.ini`
+
+Đảm bảo có phần `lib_deps` như sau:
+
+```ini
+[env:esp32doit-devkit-v1]
+platform = espressif32
+board = esp32doit-devkit-v1
+framework = arduino
+monitor_speed = 115200
+upload_port = COM3
+
+lib_deps =
+    miguelbalboa/MFRC522@^1.4.12
+    marcoschwartz/LiquidCrystal_I2C@^1.1.4
+    bblanchon/ArduinoJson@^7.4.2
+    mobizt/Firebase ESP32 Client@^4.4.17
 ```
 
-Including a header file produces the same results as copying the header file
-into each source file that needs it. Such copying would be time-consuming
-and error-prone. With a header file, the related declarations appear
-in only one place. If they need to be changed, they can be changed in one
-place, and programs that include the header file will automatically use the
-new version when next recompiled. The header file eliminates the labor of
-finding and changing all the copies as well as the risk that a failure to
-find one copy will result in inconsistencies within a program.
+---
 
-In C, the convention is to give header files names that end with `.h'.
+## 3️⃣ Build lần đầu để tải thư viện
 
-Read more about using header files in official GCC documentation:
+- Nhấn **Ctrl + Shift + P** → gõ `PlatformIO: Build` → Enter  
+  _(hoặc click dấu ✔ (Build) ở thanh dưới VSCode)_
+- Đợi đến khi terminal báo:  
+  `================= [SUCCESS] Took xx.x seconds =================`
 
-* Include Syntax
-* Include Operation
-* Once-Only Headers
-* Computed Includes
+---
 
-https://gcc.gnu.org/onlinedocs/cpp/Header-Files.html
+## 4️⃣ Cập nhật IntelliSense (hết gạch đỏ ở #include)
+
+- Nhấn **Ctrl + Shift + P** → gõ `PlatformIO: Rebuild IntelliSense Index` → Enter
+
+---
+
+## 5️⃣ Upload code lên ESP32 (tùy chọn)
+
+- Cắm board ESP32, chọn đúng cổng COM (nếu cần sửa trong `platformio.ini`)
+- Nhấn **Ctrl + Alt + U** _(hoặc click mũi tên "Upload")_
+- Đợi đến khi terminal báo:  
+  `================= [SUCCESS] Took xx.x seconds =================`
+
+---
+
+## 6️⃣ Khi dùng Git
+
+- KHÔNG commit thư mục `.pio/` (rất nặng, không cần thiết)
+- Chỉ commit/push:
+  - `platformio.ini`
+  - thư mục `src/`, `include/`, `lib/` (nếu có custom lib)
+
+Người khác chỉ cần clone project → mở VSCode → **Build (Ctrl + Shift + P → Build)** là sẽ tự động tải đầy đủ thư viện.
+
+---
+
+## ⌨️ Tổ hợp phím hữu ích
+
+| Chức năng             | Tổ hợp phím                                                        |
+| --------------------- | ------------------------------------------------------------------ |
+| Mở Command Palette    | **Ctrl + Shift + P**                                               |
+| Build project         | **Ctrl + Shift + P** → gõ `PlatformIO: Build`                      |
+| Upload code lên ESP32 | **Ctrl + Alt + U**                                                 |
+| Rebuild IntelliSense  | **Ctrl + Shift + P** → gõ `PlatformIO: Rebuild IntelliSense Index` |
+| Mở Serial Monitor     | **Ctrl + Alt + S**                                                 |
+
+---
+
+✅ **Sau các bước trên, project sẽ build thành công và sẵn sàng để upload lên ESP32.**

@@ -69,8 +69,8 @@ String removeVietnameseTones(String str) {
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 LiquidCrystal_I2C lcd(0x27, 20, 4);   // LCD 20x4
 
-const char* ssid = "H11";
-const char* password = "0707304298";
+const char* ssid = "H06-Babershop";
+const char* password = "Tratiencattoc";
 const String firebaseHost = "https://nckh-61911-default-rtdb.firebaseio.com/";
 
 bool daQuetSV = false;
