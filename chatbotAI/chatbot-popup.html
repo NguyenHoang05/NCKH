@@ -9,25 +9,39 @@
   <!-- Material Icons & CSS gốc của chatbot -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
   <link rel="stylesheet" href="style.css"/>
+<style>
+  /* Nền bên trong iframe trong suốt */
+  html, body { height:100%; background: transparent !important; }
+  body { margin:0; overflow:hidden; }
 
-  <!-- Ghi đè một vài rule để popup fit trọn iframe -->
-  <style>
-    html,body { height:100%; background:transparent !important; }
-    /* Luôn hiện popup, ẩn nút tròn bên trong iframe */
-    body { overflow:hidden; }
-    #chatbot-toggler { display:none !important; }
-    /* Biến popup thành khung chiếm trọn iframe thay vì cố định góc */
-    .chatbot-popup {
-      position: absolute !important;
-      inset: 0 !important; /* top/right/bottom/left: 0 */
-      width: 100% !important;
-      height: 100% !important;
-      opacity: 1 !important;
-      transform: scale(1) !important;
-      pointer-events: auto !important;
-      border-radius: 16px;
-    }
-  </style>
+  /* Nếu popup có tạo lớp mờ bằng before/after -> tắt */
+  .chatbot-popup::before,
+  .chatbot-popup::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Khung chat chiếm toàn bộ iframe, nền trắng, bo góc, bóng nhẹ */
+  .chatbot-popup{
+    position: absolute !important;
+    inset: 0 !important;      /* top/right/bottom/left: 0 */
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    background: #fff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,.25) !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+  }
+
+  /* Ẩn nút tròn bên trong popup (nếu có) */
+  #chatbot-toggler{ display:none !important; }
+</style>
+
 </head>
 <!-- ép mở sẵn popup bằng class show-chatbot -->
 <body class="show-chatbot">
@@ -42,8 +56,8 @@
     <!-- Header -->
     <div class="chat-header">
       <div class="header-info">
-        <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-          <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
+        <svg class="chatbot-logo" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="10 10 600 600">
+          <path d="M528 320C528 205.1 434.9 112 320 112C205.1 112 112 205.1 112 320C112 394.1 150.8 459.2 209.1 496C208.4 490.8 208 485.4 208 480L208 426.5C197.8 413.9 189.7 399.6 184.2 384.1C180.1 372.5 192 362.7 203.8 366.3C238.5 376.9 278 382.8 319.9 382.8C361.9 382.8 401.4 376.8 436.2 366.2C448 362.6 459.9 372.3 455.8 384C450.3 399.6 442.2 413.9 432 426.5L432 480C432 485.4 431.6 490.8 430.9 496C489.3 459.2 528 394.1 528 320zM576 320C576 436.3 498.4 534.6 392.1 565.7C372.6 582.1 347.5 592 320 592C292.5 592 267.4 582.1 247.9 565.7C141.6 534.6 64 436.3 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320zM240 240C257.7 240 272 254.3 272 272C272 289.7 257.7 304 240 304C222.3 304 208 289.7 208 272C208 254.3 222.3 240 240 240zM368 272C368 254.3 382.3 240 400 240C417.7 240 432 254.3 432 272C432 289.7 417.7 304 400 304C382.3 304 368 289.7 368 272zM384 480L384 442.6C384 427.9 372.1 416 357.4 416L355.4 416C344.1 416 334.3 423.9 331.8 434.9C329 447.5 311 447.5 308.2 434.9C305.7 423.8 295.9 416 284.6 416L282.6 416C267.9 416 256 427.9 256 442.6L256 480C256 515.3 284.7 544 320 544C355.3 544 384 515.3 384 480z"/></path>
         </svg>
         <h2 class="logo-text">Librarybot</h2>
       </div>
@@ -51,16 +65,27 @@
     </div>
 
     <!-- Body -->
-    <div class="chat-body">
-      <div class="message bot-message">
-        <svg class="bot-avatar" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 1024 1024">
-          <path d="M738.3 287.6H285.7c-59 0-106.8 47.8-106.8 106.8v303.1c0 59 47.8 106.8 106.8 106.8h81.5v111.1c0 .7.8 1.1 1.4.7l166.9-110.6 41.8-.8h117.4l43.6-.4c59 0 106.8-47.8 106.8-106.8V394.5c0-59-47.8-106.9-106.8-106.9zM351.7 448.2c0-29.5 23.9-53.5 53.5-53.5s53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5-53.5-23.9-53.5-53.5zm157.9 267.1c-67.8 0-123.8-47.5-132.3-109h264.6c-8.6 61.5-64.5 109-132.3 109zm110-213.7c-29.5 0-53.5-23.9-53.5-53.5s23.9-53.5 53.5-53.5 53.5 23.9 53.5 53.5-23.9 53.5-53.5 53.5zM867.2 644.5V453.1h26.5c19.4 0 35.1 15.7 35.1 35.1v121.1c0 19.4-15.7 35.1-35.1 35.1h-26.5zM95.2 609.4V488.2c0-19.4 15.7-35.1 35.1-35.1h26.5v191.3h-26.5c-19.4 0-35.1-15.7-35.1-35.1zM561.5 149.6c0 23.4-15.6 43.3-36.9 49.7v44.9h-30v-44.9c-21.4-6.5-36.9-26.3-36.9-49.7 0-28.6 23.3-51.9 51.9-51.9s51.9 23.3 51.9 51.9z"></path>
-        </svg>
-        <div class="message-text">
-          Xin chào 👋<br/>Bạn cần tìm sách nào?
-        </div>
-      </div>
+   <div class="chat-body">
+  <div class="message bot-message">
+  <svg class="bot-avatar" ...></svg>
+
+  <div class="bot-block">
+    <!-- Lời chào -->
+    <div class="message-text">
+      Xin chào 👋<br/>Bạn cần tìm sách nào?
     </div>
+
+    <!-- Quick Prompts -->
+    <div class="quick-prompts" aria-label="Gợi ý nhanh">
+  <button type="button" class="quick-prompt" data-prompt="Có những thể loại nào?">Các thể loại</button>
+  <button type="button" class="quick-prompt" data-prompt="Những tác giả tiêu biểu?">Tác giả nổi bật</button>
+  <button type="button" class="quick-prompt" data-prompt="Thời gian làm việc">Thời gian làm việc</button>
+  <button type="button" class="quick-prompt" data-prompt="Quy định mượn sách">Quy định</button>
+</div>
+
+  </div>
+</div>
+</div>
 
     <!-- Footer -->
     <div class="chat-footer">
@@ -91,6 +116,6 @@
     }
   </script>
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-  <script type="module" src="script.js"></script>
+  <script type="module" src="./script.js"></script>
 </body>
 </html>

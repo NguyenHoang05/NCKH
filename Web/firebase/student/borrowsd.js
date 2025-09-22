@@ -1,20 +1,30 @@
 // borrowsd.js
 console.log("✅ borrowsd.js loaded");
 
-import { db } from '../firebase.js';
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
+import { db } from "../firebase.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 // Hàm load danh sách sách đã mượn
 async function loadBorrowedBooks() {
   try {
-    // Lấy iduser từ localStorage
-    const iduser = localStorage.getItem("iduser");
-    if (!iduser) {
-      alert("❌ Không tìm thấy thông tin sinh viên. Vui lòng đăng nhập lại!");
-      window.location.href = "../../index.html";
-      return;
-    }
+    // Lấy iduser từ localStorage + thêm DEV_MODE
+    const DEV_MODE = true; //MỞ KHÓA TRUY CẬP
+    let iduser = localStorage.getItem("iduser");
 
+    if (!iduser) {
+      if (DEV_MODE) {
+        console.warn("⚠️ Dev mode: set iduser tạm");
+        iduser = "test-user-001";
+        localStorage.setItem("iduser", iduser);
+      } else {
+        alert("❌ Không tìm thấy thông tin sinh viên. Vui lòng đăng nhập lại!");
+        window.location.href = "../../index.html";
+        return;
+      }
+    }
     // Truy vấn Firestore: users/{iduser}/books
     const booksRef = collection(db, "users", iduser, "books");
     const snapshot = await getDocs(booksRef);
@@ -44,9 +54,15 @@ async function loadBorrowedBooks() {
         tr.onmouseout = () => (tr.style.background = "transparent");
 
         tr.innerHTML = `
-          <td style="padding:16px 20px;color:#1a1a1a;font-weight:500;">${book.bookName || ""}</td>
-          <td style="padding:16px 20px;color:#666;">${book.borrowDate || ""}</td>
-          <td style="padding:16px 20px;color:#666;">${book.returnDate || ""}</td>
+          <td style="padding:16px 20px;color:#1a1a1a;font-weight:500;">${
+            book.bookName || ""
+          }</td>
+          <td style="padding:16px 20px;color:#666;">${
+            book.borrowDate || ""
+          }</td>
+          <td style="padding:16px 20px;color:#666;">${
+            book.returnDate || ""
+          }</td>
           <td style="padding:16px 20px;">
             <span style="background:${statusColor};color:${textColor};
                          padding:6px 12px;border-radius:20px;font-size:0.9rem;font-weight:500;">
