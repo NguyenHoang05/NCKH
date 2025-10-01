@@ -212,18 +212,22 @@
         >
           <div style="position: relative; width: 90%; max-width: 800px">
             <div
+              id="searchContainer"
               style="
                 position: relative;
                 background: white;
                 border-radius: 30px;
                 box-shadow: 0 25px 80px rgba(0, 0, 0, 0.08);
                 border: 2px solid #e2e8f0;
-                overflow: hidden;
+                overflow: visible;
+                z-index: 10;
               "
             >
               <input
+                id="bookSearchInput"
                 type="text"
                 placeholder="🔍 Tìm kiếm sách, tác giả hoặc chủ đề..."
+                autocomplete="off"
                 style="
                   width: 100%;
                   padding: 30px 40px;
@@ -235,8 +239,10 @@
                   font-family: 'Inter', sans-serif;
                   font-weight: 500;
                 "
-                onfocus="this.parentElement.style.boxShadow='0 30px 100px rgba(77,91,249,0.15)';this.parentElement.style.border='2px solid #4d5bf9'"
-                onblur="this.parentElement.style.boxShadow='0 25px 80px rgba(0,0,0,0.08)';this.parentElement.style.border='2px solid #e2e8f0'"
+                onfocus="handleSearchFocus()"
+                onblur="handleSearchBlur()"
+                oninput="handleSearchInput(event)"
+                onkeydown="handleSearchKeydown(event)"
               />
               <div
                 style="
@@ -256,9 +262,33 @@
                 "
                 onmouseover="this.style.transform='translateY(-50%) scale(1.1)'"
                 onmouseout="this.style.transform='translateY(-50%) scale(1)'"
+                onclick="performSearch()"
               >
                 <span style="color: white; font-size: 1.2rem">🔍</span>
               </div>
+            </div>
+            
+            <!-- Dropdown Suggestions -->
+            <div
+              id="searchSuggestions"
+              style="
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border-radius: 0 0 30px 30px;
+                box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+                border: 2px solid #4d5bf9;
+                border-top: none;
+                max-height: 400px;
+                overflow-y: auto;
+                z-index: 1000;
+                display: none;
+                margin-top: -2px;
+              "
+            >
+              <!-- Suggestions will be populated by JavaScript -->
             </div>
           </div>
         </div>
@@ -737,6 +767,29 @@
                 <th
                   style="
                     padding: 18px 22px;
+                    text-align: center;
+                    color: white;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    width: 80px;
+                  "
+                >
+                  #
+                </th>
+                <th
+                  style="
+                    padding: 18px 22px;
+                    text-align: left;
+                    color: white;
+                    font-weight: 600;
+                    font-size: 1rem;
+                  "
+                >
+                  ID Sách
+                </th>
+                <th
+                  style="
+                    padding: 18px 22px;
                     text-align: left;
                     color: white;
                     font-weight: 600;
@@ -748,7 +801,7 @@
                 <th
                   style="
                     padding: 18px 22px;
-                    text-align: left;
+                    text-align: center;
                     color: white;
                     font-weight: 600;
                     font-size: 1rem;
@@ -759,7 +812,7 @@
                 <th
                   style="
                     padding: 18px 22px;
-                    text-align: left;
+                    text-align: center;
                     color: white;
                     font-weight: 600;
                     font-size: 1rem;
@@ -770,7 +823,7 @@
                 <th
                   style="
                     padding: 18px 22px;
-                    text-align: left;
+                    text-align: center;
                     color: white;
                     font-weight: 600;
                     font-size: 1rem;
@@ -1508,6 +1561,7 @@
         <!-- Thanh tìm kiếm lớn phía trên -->
         <div style="width: 100%; margin-bottom: 40px">
           <div
+            id="favoriteSearchContainer"
             style="
               position: relative;
               width: 100%;
@@ -1516,8 +1570,10 @@
             "
           >
             <input
+              id="favoriteSearchInput"
               type="text"
               placeholder="Tìm kiếm sách yêu thích của bạn..."
+              autocomplete="off"
               style="
                 width: 100%;
                 font-size: 1.3rem;
@@ -1531,8 +1587,10 @@
                 outline: none;
                 transition: all 0.3s ease;
               "
-              onfocus="this.style.boxShadow='0 12px 48px rgba(0,0,0,0.15)'"
-              onblur="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.1)'"
+              onfocus="handleFavoriteSearchFocus()"
+              onblur="handleFavoriteSearchBlur()"
+              oninput="handleFavoriteSearchInput(event)"
+              onkeydown="handleFavoriteSearchKeydown(event)"
             />
             <div
               style="
@@ -1545,6 +1603,29 @@
               "
             >
               🔍
+            </div>
+            
+            <!-- Dropdown Suggestions for Favorite -->
+            <div
+              id="favoriteSearchSuggestions"
+              style="
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+                border: 2px solid #4d5bf9;
+                border-top: none;
+                max-height: 400px;
+                overflow-y: auto;
+                z-index: 1000;
+                display: none;
+                margin-top: -2px;
+              "
+            >
+              <!-- Suggestions will be populated by JavaScript -->
             </div>
           </div>
         </div>
@@ -2143,6 +2224,9 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="script.js"></script>
+    <script type="module" src="borrowed.js"></script>
+    <script type="module" src="search-autocomplete.js"></script>
     <script>
       // Xử lý chuyển tab và hiển thị nội dung tương ứng
       let list = document.querySelectorAll(".list");

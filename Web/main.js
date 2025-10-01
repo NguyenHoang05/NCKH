@@ -19,7 +19,7 @@ if (loginForm) {
         // Lấy thông tin đăng nhập
         const username = loginForm.querySelector('input[type="text"]').value;
         const password = loginForm.querySelector('input[type="password"]').value;
-        const role = document.getElementById('roleSelect').value;
+        const role = document.getElementById('roleSelectlogin').value;
         
         // Kiểm tra thông tin đăng nhập
         if (!username || !password || !role) {

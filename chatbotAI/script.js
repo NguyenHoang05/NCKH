@@ -1,7 +1,7 @@
 // firebase-config.js
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCQHfCHYaNsrqF3WxnYXzBupYt1JepSAgE",
@@ -23,7 +23,7 @@ import {
   query,
   where,
   getDocs,
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js";
 
 const chatBody = document.querySelector(".chat-body");
 const messageInput = document.querySelector(".message-input");

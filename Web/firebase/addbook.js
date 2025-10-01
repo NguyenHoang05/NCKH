@@ -34,9 +34,17 @@ window.submitAddBookForm = async function (event) {
       createdAt: new Date().toISOString()
     });
 
-    alert("✅ Thêm sách thành công!");
+    // Hiển thị thông báo thành công với thông tin chi tiết
+    const successMessage = `✅ Thêm sách thành công!\n\nThông tin sách:\n- Tên: ${name}\n- ID: ${id}\n- Tác giả: ${author}\n- Thể loại: ${genre}\n- Vị trí tủ: ${shelf}`;
+    alert(successMessage);
+    
     document.getElementById("addBookForm").reset();
     if (window.closeAddBookForm) closeAddBookForm();
+    
+    // Reload danh sách sách nếu đang ở trang List
+    if (window.loadBookList) {
+        loadBookList();
+    }
   } catch (error) {
     console.error("❌ Lỗi khi thêm sách: ", error);
     alert("Không thể thêm sách: " + error.message);
